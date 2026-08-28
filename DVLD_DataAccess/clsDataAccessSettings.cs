@@ -10,6 +10,6 @@ namespace DVLD_DataAccess
     {
 
 
-        public static string connectionString = "Server = .;Database = InventoryDB;User ID = sa ; Password = 123456;";
+        public static string connectionString = "Server = .;Database = DVLD;User ID = sa ; Password = 123456;";
     }
 }
