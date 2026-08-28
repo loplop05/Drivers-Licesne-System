@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace DVLD_DataAccess
 {
-    internal class clsPeopleData
+    public class clsPeopleData
     {
         // GET PERSON BY ID
         public static bool GetPersonByID(
