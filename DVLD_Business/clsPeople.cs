@@ -207,7 +207,7 @@ namespace DVLD_Business
         }
 
 
-        // CHECK IF PERSON EXISTS BY NATIONAL NO
+        
         public static bool IsPersonExist(string NationalNo)
         {
             return clsPeopleData.IsPersonExist(NationalNo);
