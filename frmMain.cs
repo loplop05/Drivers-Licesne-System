@@ -16,5 +16,11 @@ namespace DVLD
         {
             InitializeComponent();
         }
+
+        private void btnPeople_Click(object sender, EventArgs e)
+        {
+            pnlContent.Controls.Clear();
+            
+        }
     }
 }
