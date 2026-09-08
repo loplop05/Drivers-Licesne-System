@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,6 +81,17 @@
       <Project>{4945ac2a-061a-42bf-80a2-1436834eadcc}</Project>
       <Name>DVLD_Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Applications\" />
+    <Folder Include="Drivers\" />
+    <Folder Include="Global Classes\" />
+    <Folder Include="Licenses\" />
+    <Folder Include="Login\" />
+    <Folder Include="People\" />
+    <Folder Include="Resourcses\" />
+    <Folder Include="Tests\" />
+    <Folder Include="User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
