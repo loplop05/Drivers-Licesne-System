@@ -83,14 +83,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\" />
+    <Folder Include="Applications\Applications Types\" />
+    <Folder Include="Applications\Controls\" />
+    <Folder Include="Applications\International License\" />
+    <Folder Include="Applications\Local Driving License\" />
+    <Folder Include="Applications\Release Detained License\" />
+    <Folder Include="Applications\Renew Driving License\" />
+    <Folder Include="Applications\ReplaceLostOrDamageLicesne\" />
     <Folder Include="Drivers\" />
     <Folder Include="Global Classes\" />
-    <Folder Include="Licenses\" />
+    <Folder Include="Licenses\Controls\" />
+    <Folder Include="Licenses\Detain License\" />
+    <Folder Include="Licenses\International License\" />
+    <Folder Include="Licenses\Local Licenses\" />
     <Folder Include="Login\" />
-    <Folder Include="People\" />
+    <Folder Include="People\Controls\" />
     <Folder Include="Resourcses\" />
-    <Folder Include="Tests\" />
+    <Folder Include="Tests\Controls\" />
+    <Folder Include="Tests\Test Types\" />
     <Folder Include="User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
