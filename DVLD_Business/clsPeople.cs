@@ -83,7 +83,7 @@ namespace DVLD_Business
         }
 
 
-        // FIND PERSON BY ID
+        
         public static clsPeople Find(int PersonID)
         {
             string NationalNo = "";
@@ -138,7 +138,7 @@ namespace DVLD_Business
         }
 
 
-        // ADD NEW PERSON
+
         private bool _AddNewPerson()
         {
             PersonID = clsPeopleData.AddNewPerson(
@@ -160,7 +160,7 @@ namespace DVLD_Business
         }
 
 
-        // UPDATE PERSON
+
         private bool _UpdatePerson()
         {
             return clsPeopleData.UpdatePerson(
@@ -181,7 +181,11 @@ namespace DVLD_Business
         }
 
 
-        // SAVE PERSON
+        public static bool IsPersonExist(string NationalNo)
+        {
+            return clsPeopleData.IsPersonExist(NationalNo);
+        }
+ 
         public bool Save()
         {
             switch (Mode)
@@ -208,9 +212,5 @@ namespace DVLD_Business
 
 
         
-        public static bool IsPersonExist(string NationalNo)
-        {
-            return clsPeopleData.IsPersonExist(NationalNo);
-        }
     }
 }
