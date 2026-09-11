@@ -335,8 +335,79 @@ namespace DVLD_DataAccess
             return dt;
         }
 
+        public static DataTable GetPeopleByFilter(string Filter, string Value)
+        {
+            DataTable dt = new DataTable();
 
+            string query = "SELECT * FROM People";
 
+            switch (Filter)
+            {
+                case "Person ID":
+                    query += " WHERE PersonID LIKE '%' + @Value + '%'";
+                    break;
+
+                case "National No":
+                    query += " WHERE NationalNo LIKE '%' + @Value + '%'";
+                    break;
+
+                case "First Name":
+                    query += " WHERE FirstName LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Second Name":
+                    query += " WHERE SecondName LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Third Name":
+                    query += " WHERE ThirdName LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Last Name":
+                    query += " WHERE LastName LIKE '%' + @Value + '%'";
+                    break;
+
+                //case "Nationality":
+                //    query += " WHERE Nationality LIKE '%' + @Value + '%'";
+                //    break;
+
+                case "Gendor":
+                    query += " WHERE Gendor LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Phone":
+                    query += " WHERE Phone LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Email":
+                    query += " WHERE Email LIKE '%' + @Value + '%'";
+                    break;
+
+                case "None":
+                    break;
+
+                default:
+                    return dt;
+            }
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                if (Filter != "None")
+                {
+                    command.Parameters.AddWithValue("@Value", Value);
+                }
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+            }
+
+            return dt;
+        }
 
 
 

@@ -216,5 +216,18 @@ namespace DVLD_Business
             return clsPeopleData.ListAllPeople();
         }
 
+        public static DataTable GetPeopleByFilter(string ColumnName, string Value)
+        {
+            return clsPeopleData.GetPeopleByFilter(ColumnName, Value);
+        }
+
+
+
+
+
+
+
+
+
     }
 }
