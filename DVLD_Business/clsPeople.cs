@@ -216,13 +216,30 @@ namespace DVLD_Business
             return clsPeopleData.ListAllPeople();
         }
 
+
+
+
+
         public static DataTable GetPeopleByFilter(string ColumnName, string Value)
         {
             return clsPeopleData.GetPeopleByFilter(ColumnName, Value);
         }
 
+        public bool AddNewPerson()
+        {
+            if (_AddNewPerson())
+            {
+                Mode = enMode.Update;
+                return true;
+            }
 
+            return false;
+        }
 
+        public bool UpdatePerson()
+        {
+            return _UpdatePerson();
+        }
 
 
 

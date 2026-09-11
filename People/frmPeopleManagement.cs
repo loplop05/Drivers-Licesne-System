@@ -60,5 +60,10 @@ namespace DVLD.People
         {
             LoadDataFromDataBase();
         }
+
+        private void btnAddPeople_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

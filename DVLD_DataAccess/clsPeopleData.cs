@@ -368,6 +368,7 @@ namespace DVLD_DataAccess
                     break;
 
                 //case "Nationality":
+                //case "Nationality":
                 //    query += " WHERE Nationality LIKE '%' + @Value + '%'";
                 //    break;
 

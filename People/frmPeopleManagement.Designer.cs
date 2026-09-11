@@ -30,7 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dgvPeople = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddPeople = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
@@ -61,14 +61,15 @@
             this.dgvPeople.Size = new System.Drawing.Size(1436, 352);
             this.dgvPeople.TabIndex = 2;
             // 
-            // button1
+            // btnAddPeople
             // 
-            this.button1.Image = global::DVLD.Properties.Resources.Add_Person_40;
-            this.button1.Location = new System.Drawing.Point(1320, 185);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 76);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddPeople.Image = global::DVLD.Properties.Resources.Add_Person_40;
+            this.btnAddPeople.Location = new System.Drawing.Point(1320, 185);
+            this.btnAddPeople.Name = "btnAddPeople";
+            this.btnAddPeople.Size = new System.Drawing.Size(102, 76);
+            this.btnAddPeople.TabIndex = 3;
+            this.btnAddPeople.UseVisualStyleBackColor = true;
+            this.btnAddPeople.Click += new System.EventHandler(this.btnAddPeople_Click);
             // 
             // pictureBox1
             // 
@@ -131,7 +132,7 @@
             this.Controls.Add(this.txtboxFilter);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddPeople);
             this.Controls.Add(this.dgvPeople);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -150,7 +151,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvPeople;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddPeople;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbFilterBy;
         private System.Windows.Forms.TextBox txtboxFilter;
