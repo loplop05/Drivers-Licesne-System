@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.People;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,18 @@ namespace DVLD
         private void btnPeople_Click(object sender, EventArgs e)
         {
             pnlContent.Controls.Clear();
-            
+
+            fmrPeopleManagment frm = new fmrPeopleManagment();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContent.Controls.Add(frm);
+            frm.Show();
+
+
+
         }
     }
 }
