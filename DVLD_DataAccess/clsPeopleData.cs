@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace DVLD_DataAccess
@@ -312,7 +313,27 @@ namespace DVLD_DataAccess
 
 
 
+        public static DataTable ListAllPeople()
+        {
+            DataTable dt = new DataTable();
 
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = "SELECT * FROM People";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+
+            return dt;
+        }
 
 
 

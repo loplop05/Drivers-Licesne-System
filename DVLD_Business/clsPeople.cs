@@ -1,5 +1,6 @@
-﻿using System;
-using DVLD_DataAccess;
+﻿using DVLD_DataAccess;
+using System;
+using System.Data;
 
 namespace DVLD_Business
 {
@@ -210,7 +211,10 @@ namespace DVLD_Business
             return false;
         }
 
+        public static DataTable ListAllPeople()
+        {
+            return clsPeopleData.ListAllPeople();
+        }
 
-        
     }
 }

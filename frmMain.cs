@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace DVLD
 {
-    public partial class frmMain : Form
+    public partial class frmMain : System.Windows.Forms.Form
     {
         public frmMain()
         {
@@ -22,7 +22,7 @@ namespace DVLD
         {
             pnlContent.Controls.Clear();
 
-            fmrPeopleManagment frm = new fmrPeopleManagment();
+            frmPeopleManagement frm = new frmPeopleManagement();
 
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
@@ -34,5 +34,45 @@ namespace DVLD
 
 
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MSPeople_Click(object sender, EventArgs e)
+        {
+            frmPeopleManagement frm = new frmPeopleManagement();
+
+            frm.TopLevel = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
+
+            pnlContent.Controls.Add(frm);
+
+            frm.Show();
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
