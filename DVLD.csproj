@@ -37,6 +37,7 @@
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,18 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\ctrlAddEditPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrlAddEditPerson.Designer.cs">
+      <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmAddEditPeople.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddEditPeople.Designer.cs">
+      <DependentUpon>frmAddEditPeople.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmPeopleManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +77,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrlAddEditPerson.resx">
+      <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddEditPeople.resx">
+      <DependentUpon>frmAddEditPeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmPeopleManagement.resx">
       <DependentUpon>frmPeopleManagement.cs</DependentUpon>
@@ -112,7 +131,6 @@
     <Folder Include="Licenses\International License\" />
     <Folder Include="Licenses\Local Licenses\" />
     <Folder Include="Login\" />
-    <Folder Include="People\Controls\" />
     <Folder Include="Resourcses\" />
     <Folder Include="Tests\Controls\" />
     <Folder Include="Tests\Test Types\" />
