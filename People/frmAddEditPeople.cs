@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD.People.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace DVLD.People
         public frmAddPeople()
         {
             InitializeComponent();
+            ctrlAddEditPerson1.PersonSaved += CtrlAddEditPerson1_PersonSaved;
+        }
+        private void CtrlAddEditPerson1_PersonSaved(object sender, EventArgs e)
+        {
+            lblPersonID.Text = ctrlAddEditPerson1.PersonID.ToString();
+        }
+
+        private void ctrlAddEditPerson1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

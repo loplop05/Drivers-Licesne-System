@@ -63,7 +63,11 @@ namespace DVLD.People
 
         private void btnAddPeople_Click(object sender, EventArgs e)
         {
-            
+            frmAddPeople frmAdd = new frmAddPeople();
+
+            frmAdd.ShowDialog();
+
+
         }
     }
 }

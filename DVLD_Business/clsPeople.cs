@@ -1,7 +1,7 @@
 ﻿using DVLD_DataAccess;
 using System;
 using System.Data;
-
+using System.IO;
 namespace DVLD_Business
 {
     public class clsPeople
@@ -27,7 +27,7 @@ namespace DVLD_Business
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
-
+        private string selectedSourceFilePath = "";
 
         // CONSTRUCTOR FOR ADD NEW PERSON
         public clsPeople()
