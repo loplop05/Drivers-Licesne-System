@@ -10,6 +10,17 @@ namespace DVLD_Business
 {
     public class clsCountries
     {
+        public int CountryID { get; set; }
+        public string CountryName { get; set; }
+
+
+        private clsCountries(int CountryID, string CountryName)
+        {
+            this.CountryID = CountryID;
+            this.CountryName = CountryName;
+        }
+
+
 
 
         public static DataTable ListAllCountries()
@@ -19,7 +30,25 @@ namespace DVLD_Business
 
 
 
+        public static clsCountries Find(int CountryID)
+        {
+            string CountryName = "";
 
+            bool IsFound = clsCountriesData.GetCountryByID(
+                CountryID,
+                ref CountryName
+            );
+
+            if (IsFound)
+            {
+                return new clsCountries(
+                    CountryID,
+                    CountryName
+                );
+            }
+
+            return null;
+        }
 
 
 

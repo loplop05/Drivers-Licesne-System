@@ -17,11 +17,17 @@ namespace DVLD.People
 
         private void LoadDataFromDataBase()
         {
+            
+        }
+
+        private void _RefreshPeopleList()
+        {
             DataTable dt = clsPeople.GetPeopleByFilter(
-                cbFilterBy.Text.Trim(), txtboxFilter.Text.Trim());
+                 cbFilterBy.Text.Trim(), txtboxFilter.Text.Trim());
 
             dgvPeople.DataSource = dt;
         }
+
 
 
 
@@ -31,7 +37,9 @@ namespace DVLD.People
             InitializeComponent();
             cbFilterBy.SelectedIndex = 0; 
 
-            LoadDataFromDataBase();
+           
+
+            _RefreshPeopleList();
         }
 
         private void cbFilterBy_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,6 +74,52 @@ namespace DVLD.People
             frmAddPeople frmAdd = new frmAddPeople();
 
             frmAdd.ShowDialog();
+
+            _RefreshPeopleList();
+
+        }
+
+
+
+
+
+        private void btnRefreshPeople_Click(object sender, EventArgs e)
+        {
+            _RefreshPeopleList();
+        }
+
+        private void dgvPeople_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+            {
+                dgvPeople.ClearSelection();
+
+                dgvPeople.Rows[e.RowIndex].Selected = true;
+
+                dgvPeople.CurrentCell = dgvPeople.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            }
+
+        }
+
+        private int _GetSelectedPersonID()
+        {
+            if (dgvPeople.CurrentRow == null)
+                return -1;
+
+            return Convert.ToInt32(
+                dgvPeople.CurrentRow.Cells["PersonID"].Value.ToString()
+            );
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = _GetSelectedPersonID();
+
+            if (PersonID == -1) return;
+
+            frmPersonDetails frm = new frmPersonDetails(PersonID);
+            frm.ShowDialog();
+
 
 
         }

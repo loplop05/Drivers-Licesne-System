@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-
 namespace DVLD_DataAccess
 {
     public class clsPeopleData
@@ -52,7 +51,7 @@ namespace DVLD_DataAccess
                     ThirdName = (string)reader["ThirdName"];
                     LastName = (string)reader["LastName"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gendor = (string)reader["Gendor"];
+                    Gendor = (string)reader["Gendor"].ToString();
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = (string)reader["Email"];
@@ -73,7 +72,9 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
-                isFound = false;
+                throw;
+
+                // isFound = false;
             }
             finally
             {
@@ -171,6 +172,7 @@ namespace DVLD_DataAccess
             }
             catch (Exception ex)
             {
+
             }
             finally
             {

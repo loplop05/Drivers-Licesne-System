@@ -40,7 +40,44 @@ namespace DVLD_DataAccess
             return dt;
         }
 
+        public static bool GetCountryByID(int CountryID, ref string CountryName)
+        {
+            bool IsFound = false;
 
+            using (SqlConnection connection =
+                new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"SELECT CountryName
+                                 FROM Countries
+                                 WHERE CountryID = @CountryID";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@CountryID", CountryID);
+
+                    try
+                    {
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                IsFound = true;
+
+                                CountryName = (string)reader["CountryName"];
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Handle exception according to your project
+                    }
+                }
+            }
+
+            return IsFound;
+        }
 
 
 

@@ -44,7 +44,6 @@
             this.txtSecondName = new System.Windows.Forms.TextBox();
             this.txtThirdName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             this.llSetimage = new System.Windows.Forms.LinkLabel();
             this.llRemoveImage = new System.Windows.Forms.LinkLabel();
             this.btnSave = new System.Windows.Forms.Button();
@@ -57,6 +56,7 @@
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.cbCountries = new System.Windows.Forms.ComboBox();
+            this.pbPersonImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -212,16 +212,6 @@
             this.txtLastName.Size = new System.Drawing.Size(170, 30);
             this.txtLastName.TabIndex = 14;
             // 
-            // pbPersonImage
-            // 
-            this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pbPersonImage.Location = new System.Drawing.Point(801, 137);
-            this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(246, 212);
-            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonImage.TabIndex = 15;
-            this.pbPersonImage.TabStop = false;
-            // 
             // llSetimage
             // 
             this.llSetimage.AutoSize = true;
@@ -306,11 +296,12 @@
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDateOfBirth.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(541, 155);
-            this.dtpDateOfBirth.MinDate = new System.DateTime(2008, 1, 1, 0, 0, 0, 0);
+            this.dtpDateOfBirth.MaxDate = new System.DateTime(2008, 1, 1, 0, 0, 0, 0);
+            this.dtpDateOfBirth.MinDate = new System.DateTime(1926, 1, 1, 0, 0, 0, 0);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 30);
             this.dtpDateOfBirth.TabIndex = 24;
-            this.dtpDateOfBirth.Value = new System.DateTime(2026, 9, 15, 0, 0, 0, 0);
+            this.dtpDateOfBirth.Value = new System.DateTime(2008, 1, 1, 0, 0, 0, 0);
             // 
             // rbMale
             // 
@@ -344,6 +335,16 @@
             this.cbCountries.Name = "cbCountries";
             this.cbCountries.Size = new System.Drawing.Size(158, 30);
             this.cbCountries.TabIndex = 27;
+            // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pbPersonImage.Location = new System.Drawing.Point(801, 137);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(246, 212);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonImage.TabIndex = 15;
+            this.pbPersonImage.TabStop = false;
             // 
             // ctrlAddEditPerson
             // 
@@ -379,7 +380,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ctrlAddEditPerson";
-            this.Size = new System.Drawing.Size(1063, 502);
+            this.Size = new System.Drawing.Size(1087, 550);
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -61,6 +61,12 @@
     <Compile Include="People\Controls\ctrlAddEditPerson.Designer.cs">
       <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\Controls\ctrlUserDetails.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrlUserDetails.Designer.cs">
+      <DependentUpon>ctrlUserDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmAddEditPeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,12 @@
     <Compile Include="People\frmPeopleManagement.Designer.cs">
       <DependentUpon>frmPeopleManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="People\frmPersonDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmPersonDetails.Designer.cs">
+      <DependentUpon>frmPersonDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
@@ -81,11 +93,17 @@
     <EmbeddedResource Include="People\Controls\ctrlAddEditPerson.resx">
       <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrlUserDetails.resx">
+      <DependentUpon>ctrlUserDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPeople.resx">
       <DependentUpon>frmAddEditPeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmPeopleManagement.resx">
       <DependentUpon>frmPeopleManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmPersonDetails.resx">
+      <DependentUpon>frmPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,6 +183,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Icons\Add Person 40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\edit 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Delete 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\PersonDetails 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

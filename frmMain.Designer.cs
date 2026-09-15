@@ -31,15 +31,15 @@
         {
             this.pnlTop = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.MsApplications = new System.Windows.Forms.MenuStrip();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.MSPeople = new System.Windows.Forms.ToolStripMenuItem();
+            this.MsApplications = new System.Windows.Forms.MenuStrip();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicesesServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detainLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlTop.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.MsApplications.SuspendLayout();
@@ -47,13 +47,14 @@
             // 
             // pnlTop
             // 
+            this.pnlTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlTop.AutoSize = true;
             this.pnlTop.Controls.Add(this.menuStrip1);
             this.pnlTop.Controls.Add(this.MsApplications);
             this.pnlTop.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnlTop.Location = new System.Drawing.Point(90, 12);
+            this.pnlTop.Location = new System.Drawing.Point(107, 12);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1259, 108);
+            this.pnlTop.Size = new System.Drawing.Size(1295, 96);
             this.pnlTop.TabIndex = 1;
             // 
             // menuStrip1
@@ -69,6 +70,14 @@
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "PeopleStripMenu";
             // 
+            // MSPeople
+            // 
+            this.MSPeople.Image = global::DVLD.Properties.Resources.People_64;
+            this.MSPeople.Name = "MSPeople";
+            this.MSPeople.Size = new System.Drawing.Size(147, 54);
+            this.MSPeople.Text = "People";
+            this.MSPeople.Click += new System.EventHandler(this.MSPeople_Click);
+            // 
             // MsApplications
             // 
             this.MsApplications.Dock = System.Windows.Forms.DockStyle.None;
@@ -81,21 +90,6 @@
             this.MsApplications.Size = new System.Drawing.Size(214, 58);
             this.MsApplications.TabIndex = 5;
             this.MsApplications.Text = "ApplicationStripMenu";
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Location = new System.Drawing.Point(12, 126);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1426, 570);
-            this.pnlContent.TabIndex = 3;
-            // 
-            // MSPeople
-            // 
-            this.MSPeople.Image = global::DVLD.Properties.Resources.People_64;
-            this.MSPeople.Name = "MSPeople";
-            this.MSPeople.Size = new System.Drawing.Size(147, 54);
-            this.MSPeople.Text = "People";
-            this.MSPeople.Click += new System.EventHandler(this.MSPeople_Click);
             // 
             // applicationsToolStripMenuItem
             // 
@@ -144,11 +138,20 @@
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(404, 56);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
             // 
+            // pnlContent
+            // 
+            this.pnlContent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlContent.AutoScroll = true;
+            this.pnlContent.Location = new System.Drawing.Point(12, 138);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1572, 783);
+            this.pnlContent.TabIndex = 3;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1465, 700);
+            this.ClientSize = new System.Drawing.Size(1609, 921);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlTop);
             this.IsMdiContainer = true;
@@ -156,6 +159,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Drivers";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
