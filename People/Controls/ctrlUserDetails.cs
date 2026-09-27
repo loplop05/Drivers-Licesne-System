@@ -14,6 +14,8 @@ namespace DVLD.People.Controls
 {
     public partial class ctrlUserDetails : UserControl
     {
+        private int _PersonID = -1;
+
         public ctrlUserDetails()
         {
             InitializeComponent();
@@ -22,6 +24,7 @@ namespace DVLD.People.Controls
 
         public void LoadPerson(int PersonID)
         {
+            _PersonID = PersonID;
 
             clsPeople Person = clsPeople.Find(PersonID);
 
@@ -69,6 +72,13 @@ namespace DVLD.People.Controls
                 }
             }
 
+        }
+
+        private void llEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            frmAddPeople frm = new frmAddPeople(_PersonID);
+            frm.ShowDialog();
+            LoadPerson(_PersonID);
         }
 
 

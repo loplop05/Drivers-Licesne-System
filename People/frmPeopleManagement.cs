@@ -15,10 +15,7 @@ namespace DVLD.People
     {
 
 
-        private void LoadDataFromDataBase()
-        {
-            
-        }
+      
 
         private void _RefreshPeopleList()
         {
@@ -46,7 +43,7 @@ namespace DVLD.People
         {
             txtboxFilter.Clear();
 
-            LoadDataFromDataBase();
+            _RefreshPeopleList();
         }
 
 
@@ -56,17 +53,17 @@ namespace DVLD.People
         {
             txtboxFilter.Clear();
 
-            LoadDataFromDataBase();
+            _RefreshPeopleList();
         }
 
         private void cbFilterBy_TextChanged(object sender, EventArgs e)
         {
-            LoadDataFromDataBase();
+            _RefreshPeopleList();
         }
 
         private void txtboxFilter_TextChanged(object sender, EventArgs e)
         {
-            LoadDataFromDataBase();
+            _RefreshPeopleList();
         }
 
         private void btnAddPeople_Click(object sender, EventArgs e)
@@ -122,6 +119,25 @@ namespace DVLD.People
 
 
 
+        }
+
+        private void addPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddPeople frmAdd = new frmAddPeople();
+
+            frmAdd.ShowDialog();
+
+            _RefreshPeopleList();
+        }
+
+        private void updatePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = _GetSelectedPersonID();
+
+            frmPersonDetails PersonDetails = new frmPersonDetails(PersonID);
+            PersonDetails.ShowDialog();
+
+            _RefreshPeopleList();
         }
     }
 }

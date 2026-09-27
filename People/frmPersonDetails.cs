@@ -20,5 +20,10 @@ namespace DVLD.People
             _PersonID = PersonID;
             ctrlUserDetails1.LoadPerson(PersonID);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

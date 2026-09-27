@@ -30,7 +30,7 @@
         {
             this.lblPersonID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblMode = new System.Windows.Forms.Label();
             this.ctrlAddEditPerson1 = new DVLD.People.Controls.ctrlAddEditPerson();
             this.SuspendLayout();
             // 
@@ -54,15 +54,15 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Person ID : ";
             // 
-            // label1
+            // lblMode
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(459, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(331, 48);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Add New Person";
+            this.lblMode.AutoSize = true;
+            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMode.Location = new System.Drawing.Point(514, 39);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(43, 48);
+            this.lblMode.TabIndex = 3;
+            this.lblMode.Text = "?";
             // 
             // ctrlAddEditPerson1
             // 
@@ -80,7 +80,7 @@
             this.Controls.Add(this.ctrlAddEditPerson1);
             this.Controls.Add(this.lblPersonID);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblMode);
             this.Name = "frmAddPeople";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddPeople";
@@ -93,7 +93,7 @@
 
         private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblMode;
         private Controls.ctrlAddEditPerson ctrlAddEditPerson1;
     }
 }

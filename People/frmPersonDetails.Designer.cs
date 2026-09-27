@@ -30,13 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.ctrlUserDetails1 = new DVLD.People.Controls.ctrlUserDetails();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(487, 79);
+            this.label1.Location = new System.Drawing.Point(461, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 39);
             this.label1.TabIndex = 0;
@@ -45,16 +46,27 @@
             // ctrlUserDetails1
             // 
             this.ctrlUserDetails1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ctrlUserDetails1.Location = new System.Drawing.Point(27, 150);
+            this.ctrlUserDetails1.Location = new System.Drawing.Point(51, 101);
             this.ctrlUserDetails1.Name = "ctrlUserDetails1";
             this.ctrlUserDetails1.Size = new System.Drawing.Size(1111, 511);
             this.ctrlUserDetails1.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(1015, 618);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(109, 45);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmPersonDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 690);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlUserDetails1);
             this.Controls.Add(this.label1);
             this.Name = "frmPersonDetails";
@@ -69,5 +81,6 @@
 
         private System.Windows.Forms.Label label1;
         private Controls.ctrlUserDetails ctrlUserDetails1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

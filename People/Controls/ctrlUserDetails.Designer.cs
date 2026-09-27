@@ -37,7 +37,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.llEditPersonInfo = new System.Windows.Forms.LinkLabel();
             this.lblPersonID = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
@@ -141,16 +141,17 @@
             this.label9.TabIndex = 8;
             this.label9.Text = "Country : ";
             // 
-            // linkLabel1
+            // llEditPersonInfo
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(899, 196);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(149, 25);
-            this.linkLabel1.TabIndex = 10;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Edit Person Info";
+            this.llEditPersonInfo.AutoSize = true;
+            this.llEditPersonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llEditPersonInfo.Location = new System.Drawing.Point(899, 196);
+            this.llEditPersonInfo.Name = "llEditPersonInfo";
+            this.llEditPersonInfo.Size = new System.Drawing.Size(149, 25);
+            this.llEditPersonInfo.TabIndex = 10;
+            this.llEditPersonInfo.TabStop = true;
+            this.llEditPersonInfo.Text = "Edit Person Info";
+            this.llEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditPersonInfo_LinkClicked);
             // 
             // lblPersonID
             // 
@@ -267,7 +268,7 @@
             this.Controls.Add(this.lblNationalNo);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblPersonID);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.llEditPersonInfo);
             this.Controls.Add(this.pbPersonImage);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -298,7 +299,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pbPersonImage;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel llEditPersonInfo;
         private System.Windows.Forms.Label lblPersonID;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblNationalNo;

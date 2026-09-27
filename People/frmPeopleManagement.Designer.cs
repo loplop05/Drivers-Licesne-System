@@ -37,11 +37,11 @@
             this.btnRefreshPeople = new System.Windows.Forms.Button();
             this.cmsActions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAddPeople = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.cmsActions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -145,6 +145,37 @@
             this.btnAddPeople.UseVisualStyleBackColor = true;
             this.btnAddPeople.Click += new System.EventHandler(this.btnAddPeople_Click);
             // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Image = global::DVLD.Properties.Resources.PersonDetails_32;
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
+            // 
+            // addPersonToolStripMenuItem
+            // 
+            this.addPersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.Add_Person_401;
+            this.addPersonToolStripMenuItem.Name = "addPersonToolStripMenuItem";
+            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.addPersonToolStripMenuItem.Text = "Add New Person";
+            this.addPersonToolStripMenuItem.Click += new System.EventHandler(this.addPersonToolStripMenuItem_Click);
+            // 
+            // updatePersonToolStripMenuItem
+            // 
+            this.updatePersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit_32;
+            this.updatePersonToolStripMenuItem.Name = "updatePersonToolStripMenuItem";
+            this.updatePersonToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.updatePersonToolStripMenuItem.Text = "Edit";
+            this.updatePersonToolStripMenuItem.Click += new System.EventHandler(this.updatePersonToolStripMenuItem_Click);
+            // 
+            // deletePersonToolStripMenuItem
+            // 
+            this.deletePersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.Delete_32;
+            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
+            this.deletePersonToolStripMenuItem.Text = "Delete";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DVLD.Properties.Resources.People_641;
@@ -154,35 +185,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // addPersonToolStripMenuItem
-            // 
-            this.addPersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.Add_Person_401;
-            this.addPersonToolStripMenuItem.Name = "addPersonToolStripMenuItem";
-            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
-            this.addPersonToolStripMenuItem.Text = "Add New Person";
-            // 
-            // updatePersonToolStripMenuItem
-            // 
-            this.updatePersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit_32;
-            this.updatePersonToolStripMenuItem.Name = "updatePersonToolStripMenuItem";
-            this.updatePersonToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
-            this.updatePersonToolStripMenuItem.Text = "Edit";
-            // 
-            // deletePersonToolStripMenuItem
-            // 
-            this.deletePersonToolStripMenuItem.Image = global::DVLD.Properties.Resources.Delete_32;
-            this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
-            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
-            this.deletePersonToolStripMenuItem.Text = "Delete";
-            // 
-            // showDetailsToolStripMenuItem
-            // 
-            this.showDetailsToolStripMenuItem.Image = global::DVLD.Properties.Resources.PersonDetails_32;
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(236, 30);
-            this.showDetailsToolStripMenuItem.Text = "Show Details";
-            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // frmPeopleManagement
             // 
