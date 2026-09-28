@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlUserDetails1 = new DVLD.People.Controls.ctrlUserDetails();
+            this.ctrlPersonDetails1 = new DVLD.People.Controls.ctrlPersonDetails();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -43,13 +43,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Person Details";
             // 
-            // ctrlUserDetails1
+            // ctrlPersonDetails1
             // 
-            this.ctrlUserDetails1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ctrlUserDetails1.Location = new System.Drawing.Point(51, 101);
-            this.ctrlUserDetails1.Name = "ctrlUserDetails1";
-            this.ctrlUserDetails1.Size = new System.Drawing.Size(1111, 511);
-            this.ctrlUserDetails1.TabIndex = 1;
+            this.ctrlPersonDetails1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ctrlPersonDetails1.Location = new System.Drawing.Point(51, 101);
+            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
+            this.ctrlPersonDetails1.Size = new System.Drawing.Size(1111, 511);
+            this.ctrlPersonDetails1.TabIndex = 1;
             // 
             // btnClose
             // 
@@ -67,7 +67,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 690);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.ctrlUserDetails1);
+            this.Controls.Add(this.ctrlPersonDetails1);
             this.Controls.Add(this.label1);
             this.Name = "frmPersonDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -80,7 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Controls.ctrlUserDetails ctrlUserDetails1;
+        private Controls.ctrlPersonDetails ctrlPersonDetails1;
         private System.Windows.Forms.Button btnClose;
     }
 }

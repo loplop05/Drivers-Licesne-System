@@ -1,5 +1,6 @@
 ﻿using DVLD_DataAccess;
 using System;
+using System.Data;
 
 namespace DVLD_Business
 {
@@ -88,5 +89,28 @@ namespace DVLD_Business
         {
             return FindByCredentials(Username, Password);
         }
+
+
+        public static DataTable GetAllUsers()
+        {
+            return clsUsersData.GetAllUsers();
+        }
+
+        // GET USERS BY FILTER
+        public static DataTable GetUsersByFilter(string ColumnName, string Value)
+        {
+            return clsUsersData.GetUsersByFilter(ColumnName, Value);
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }

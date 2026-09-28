@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace DVLD.People.Controls
 {
-    public partial class ctrlUserDetails : UserControl
+    public partial class ctrlPersonDetails : UserControl
     {
         private int _PersonID = -1;
 
-        public ctrlUserDetails()
+        public ctrlPersonDetails()
         {
             InitializeComponent();
         }

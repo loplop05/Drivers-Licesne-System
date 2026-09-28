@@ -1,4 +1,5 @@
 ﻿using DVLD.People;
+using DVLD.Users;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,56 +14,62 @@ namespace DVLD
 {
     public partial class frmMain : System.Windows.Forms.Form
     {
+        private Form _currentForm;
+
         public frmMain()
         {
             InitializeComponent();
         }
 
-        private void btnPeople_Click(object sender, EventArgs e)
-        {
-            pnlContent.Controls.Clear();
-
-            frmPeopleManagement frm = new frmPeopleManagement();
-
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
-
-            pnlContent.Controls.Add(frm);
-            frm.Show();
-
-
-
-        }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void MSPeople_Click(object sender, EventArgs e)
+
+
+
+
+        // Helper method to switch forms
+        private void SwitchToForm(Form newForm)
         {
-            frmPeopleManagement frm = new frmPeopleManagement();
+            // Close and dispose current form if exists
+            if (_currentForm != null)
+            {
+                _currentForm.Close();
+                _currentForm.Dispose();
+            }
 
-            frm.TopLevel = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            frm.Dock = DockStyle.Fill;
+            // Clear panel
+            pnlContent.Controls.Clear();
 
-            pnlContent.Controls.Add(frm);
+            // Setup new form
+            newForm.TopLevel = false;
+            newForm.FormBorderStyle = FormBorderStyle.None;
+            newForm.Dock = DockStyle.Fill;
 
-            frm.Show();
+            // Add to panel
+            pnlContent.Controls.Add(newForm);
+            _currentForm = newForm;
+            newForm.Show();
+        }
 
-
-
-
+        private void btnPeople_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmPeopleManagement());
         }
 
 
+        private void MSPeople_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmPeopleManagement());
+        }
 
-
-
-
-
+        private void MsUsers_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmManageUsers());
+        }
 
 
 

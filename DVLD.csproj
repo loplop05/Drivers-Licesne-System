@@ -67,11 +67,11 @@
     <Compile Include="People\Controls\ctrlAddEditPerson.Designer.cs">
       <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\Controls\ctrlUserDetails.cs">
+    <Compile Include="People\Controls\ctrlPersonDetails.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="People\Controls\ctrlUserDetails.Designer.cs">
-      <DependentUpon>ctrlUserDetails.cs</DependentUpon>
+    <Compile Include="People\Controls\ctrlPersonDetails.Designer.cs">
+      <DependentUpon>ctrlPersonDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddEditPeople.cs">
       <SubType>Form</SubType>
@@ -93,6 +93,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\frmAddNewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddNewUser.Designer.cs">
+      <DependentUpon>frmAddNewUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmManageUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmManageUsers.Designer.cs">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -102,8 +114,8 @@
     <EmbeddedResource Include="People\Controls\ctrlAddEditPerson.resx">
       <DependentUpon>ctrlAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\Controls\ctrlUserDetails.resx">
-      <DependentUpon>ctrlUserDetails.cs</DependentUpon>
+    <EmbeddedResource Include="People\Controls\ctrlPersonDetails.resx">
+      <DependentUpon>ctrlPersonDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPeople.resx">
       <DependentUpon>frmAddEditPeople.cs</DependentUpon>
@@ -124,6 +136,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Users\frmAddNewUser.resx">
+      <DependentUpon>frmAddNewUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmManageUsers.resx">
+      <DependentUpon>frmManageUsers.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -160,7 +178,6 @@
     <Folder Include="Resourcses\" />
     <Folder Include="Tests\Controls\" />
     <Folder Include="Tests\Test Types\" />
-    <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Icons\Applications 64.png" />
@@ -209,6 +226,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Icons\Password 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Users 2 400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Add New User 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Add New User 72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\SearchPerson.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\AddPerson 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

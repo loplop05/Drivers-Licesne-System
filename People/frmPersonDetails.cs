@@ -18,7 +18,7 @@ namespace DVLD.People
         {
             InitializeComponent();
             _PersonID = PersonID;
-            ctrlUserDetails1.LoadPerson(PersonID);
+            ctrlPersonDetails1.LoadPerson(PersonID);
         }
 
         private void btnClose_Click(object sender, EventArgs e)

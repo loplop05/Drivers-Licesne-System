@@ -126,5 +126,63 @@ namespace DVLD_DataAccess
 
             return dt;
         }
+
+        // GET USERS BY FILTER
+        public static DataTable GetUsersByFilter(string ColumnName, string Value)
+        {
+            DataTable dt = new DataTable();
+
+            string query = "SELECT * FROM Users";
+
+            switch (ColumnName)
+            {
+                case "UserID":
+                    query += " WHERE UserID LIKE '%' + @Value + '%'";
+                    break;
+
+                case "PersonID":
+                    query += " WHERE PersonID LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Username":
+                    query += " WHERE Username LIKE '%' + @Value + '%'";
+                    break;
+
+                case "IsActive":
+                    query += " WHERE IsActive = @Value";
+                    break;
+
+                case "None":
+                    break;
+
+                default:
+                    return dt;
+            }
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(query, connection))
+            {
+                if (ColumnName != "None")
+                {
+                    command.Parameters.AddWithValue("@Value", Value);
+                }
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+            }
+
+            return dt;
+        }
+
+
+
+
+
+
+
     }
 }
