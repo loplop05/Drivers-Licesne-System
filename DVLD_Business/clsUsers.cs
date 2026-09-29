@@ -102,7 +102,36 @@ namespace DVLD_Business
             return clsUsersData.GetUsersByFilter(ColumnName, Value);
         }
 
+        public static bool DeleteUser(int UserID)
+        {
+            return clsUsersData.DeleteUser(UserID);
+        }
 
+        public static bool ChangePassword(int UserID, string CurrentPassword, string NewPassword)
+        {
+            return clsUsersData.ChangePassword(UserID, CurrentPassword, NewPassword);
+        }
+
+        // ADD NEW USER
+        public static int AddNewUser(int PersonID, string Username, string Password, bool IsActive)
+        {
+            // Step 1: Validate that the person exists
+            clsPeople person = clsPeople.Find(PersonID);
+            if (person == null)
+            {
+                return -1; // Person not found, cannot create user
+            }
+
+            // Step 2: Call DAL to insert user with PersonID connection
+            int UserID = clsUsersData.AddNewUser(
+                PersonID,
+                Username,
+                Password,
+                IsActive
+            );
+
+            return UserID; // Returns the generated UserID or -1 on failure
+        }
 
 
 

@@ -45,18 +45,19 @@ namespace DVLD_DataAccess
                 {
                     isFound = true;
 
-                    NationalNo = (string)reader["NationalNo"];
-                    FirstName = (string)reader["FirstName"];
-                    SecondName = (string)reader["SecondName"];
-                    ThirdName = (string)reader["ThirdName"];
-                    LastName = (string)reader["LastName"];
+                    NationalNo = Convert.ToString(reader["NationalNo"]);
+                    FirstName = Convert.ToString(reader["FirstName"]);
+                    SecondName = Convert.ToString(reader["SecondName"]);
+                    ThirdName = Convert.ToString(reader["ThirdName"]);
+                    LastName = Convert.ToString(reader["LastName"]);
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gendor = (string)reader["Gendor"].ToString();
-                    Address = (string)reader["Address"];
-                    Phone = (string)reader["Phone"];
-                    Email = (string)reader["Email"];
-                    NationalityCountryID =
-                        (int)reader["NationalityCountryID"];
+                    Gendor = Convert.ToString(reader["Gendor"]);
+                    Address = Convert.ToString(reader["Address"]);
+                    Phone = Convert.ToString(reader["Phone"]);
+                    Email = Convert.ToString(reader["Email"]);
+                    NationalityCountryID = reader["NationalityCountryID"] == DBNull.Value
+                        ? -1
+                        : Convert.ToInt32(reader["NationalityCountryID"]);
 
                     if (reader["ImagePath"] != DBNull.Value)
                     {

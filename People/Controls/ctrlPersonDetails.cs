@@ -56,18 +56,29 @@ namespace DVLD.People.Controls
             lblAddress.Text = Person.Address;
             lblEmail.Text = Person.Email;
             lblPhone.Text = Person.Phone;
-            if (!string.IsNullOrEmpty(Person.ImagePath))
+            pbPersonImage.Image = null;
+
+            if (!string.IsNullOrWhiteSpace(Person.ImagePath))
             {
-                string imagePath = Path.Combine(
-                    Application.StartupPath,
-                    Person.ImagePath
-                );
+                string imagePath = Person.ImagePath.Replace('/', Path.DirectorySeparatorChar);
+
+                if (!Path.IsPathRooted(imagePath))
+                {
+                    imagePath = Path.Combine(Application.StartupPath, imagePath);
+                }
 
                 if (File.Exists(imagePath))
                 {
-                    using (Image tempImage = Image.FromFile(imagePath))
+                    try
                     {
-                        pbPersonImage.Image = new Bitmap(tempImage);
+                        using (Image tempImage = Image.FromFile(imagePath))
+                        {
+                            pbPersonImage.Image = new Bitmap(tempImage);
+                        }
+                    }
+                    catch
+                    {
+                        pbPersonImage.Image = null;
                     }
                 }
             }

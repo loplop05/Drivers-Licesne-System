@@ -36,6 +36,11 @@ namespace DVLD.People
         private int _PersonID = -1;
         private clsPeople _Person;
 
+        public int PersonID
+        {
+            get { return ctrlAddEditPerson1.PersonID; }
+        }
+
 
         public frmAddPeople()
         {

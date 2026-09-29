@@ -178,8 +178,94 @@ namespace DVLD_DataAccess
             return dt;
         }
 
+        public static bool DeleteUser(int UserID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(
+                "DELETE FROM Users WHERE UserID = @UserID", connection))
+            {
+                command.Parameters.AddWithValue("@UserID", UserID);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
+
+        public static bool ChangePassword(int UserID, string CurrentPassword, string NewPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(@"
+                UPDATE Users
+                SET Password = @NewPassword
+                WHERE UserID = @UserID AND Password = @CurrentPassword", connection))
+            {
+                command.Parameters.AddWithValue("@UserID", UserID);
+                command.Parameters.AddWithValue("@CurrentPassword", CurrentPassword);
+                command.Parameters.AddWithValue("@NewPassword", NewPassword);
+                connection.Open();
+                return command.ExecuteNonQuery() > 0;
+            }
+        }
 
 
+        // ADD NEW USER
+        public static int AddNewUser(
+            int PersonID,
+            string Username,
+            string Password,
+            bool IsActive)
+        {
+            int UserID = -1;
+
+            SqlConnection connection =
+                new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"
+            INSERT INTO Users
+            (
+            PersonID,
+            UserName,
+            Password,
+            IsActive
+        )
+        VALUES
+        (
+            @PersonID,
+            @Username,
+            @Password,
+            @IsActive
+        );
+
+        SELECT SCOPE_IDENTITY();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@Username", Username);
+            command.Parameters.AddWithValue("@Password", Password);
+            command.Parameters.AddWithValue("@IsActive", IsActive);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    UserID = Convert.ToInt32(result);
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return UserID;
+        }
 
 
 
