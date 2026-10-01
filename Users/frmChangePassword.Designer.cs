@@ -28,21 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlUserDetails1 = new DVLD.Users.ctrlUserDetails();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCurrentPassword = new System.Windows.Forms.TextBox();
             this.txtNewPassowrd = new System.Windows.Forms.TextBox();
             this.txtConfirmNewPassword = new System.Windows.Forms.TextBox();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlUserDetails1 = new DVLD.Users.ctrlUserDetails();
             this.SuspendLayout();
-            // 
-            // ctrlUserDetails1
-            // 
-            this.ctrlUserDetails1.Location = new System.Drawing.Point(124, -36);
-            this.ctrlUserDetails1.Name = "ctrlUserDetails1";
-            this.ctrlUserDetails1.Size = new System.Drawing.Size(957, 570);
-            this.ctrlUserDetails1.TabIndex = 0;
             // 
             // label1
             // 
@@ -98,11 +93,40 @@
             this.txtConfirmNewPassword.Size = new System.Drawing.Size(266, 30);
             this.txtConfirmNewPassword.TabIndex = 6;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(974, 704);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(124, 50);
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(832, 704);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(107, 43);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ctrlUserDetails1
+            // 
+            this.ctrlUserDetails1.Location = new System.Drawing.Point(124, -36);
+            this.ctrlUserDetails1.Name = "ctrlUserDetails1";
+            this.ctrlUserDetails1.Size = new System.Drawing.Size(957, 570);
+            this.ctrlUserDetails1.TabIndex = 0;
+            // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1268, 766);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtConfirmNewPassword);
             this.Controls.Add(this.txtNewPassowrd);
             this.Controls.Add(this.txtCurrentPassword);
@@ -126,5 +150,7 @@
         private System.Windows.Forms.TextBox txtCurrentPassword;
         private System.Windows.Forms.TextBox txtNewPassowrd;
         private System.Windows.Forms.TextBox txtConfirmNewPassword;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClose;
     }
 }

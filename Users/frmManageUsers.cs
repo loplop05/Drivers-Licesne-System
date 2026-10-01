@@ -35,12 +35,7 @@ namespace DVLD.Users
             comboBox1.Items.Add("IsActive");
             comboBox1.SelectedIndex = 0;
 
-            changePasswordToolStripMenuItem.Click += changePasswordToolStripMenuItem_Click;
 
-            //showDetailsToolStripMenuItem.Click += showDetailsToolStripMenuItem_Click;
-            //addNewUserToolStripMenuItem.Click += addNewUserToolStripMenuItem_Click;
-            //editToolStripMenuItem.Click += editToolStripMenuItem_Click;
-            //deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
 
             _RefreshUsersList();
         }
@@ -118,10 +113,9 @@ namespace DVLD.Users
                 return;
             }
 
-            using (frmChangePassword changePassword = new frmChangePassword(userID))
-            {
-                changePassword.ShowDialog();
-            }
+            frmChangePassword changePassword = new frmChangePassword(userID);
+            changePassword.ShowDialog();
+
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

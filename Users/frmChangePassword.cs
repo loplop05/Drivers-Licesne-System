@@ -25,19 +25,15 @@ namespace DVLD.Users
             txtNewPassowrd.UseSystemPasswordChar = true;
             txtConfirmNewPassword.UseSystemPasswordChar = true;
 
-            Button save = new Button { Text = "Save", Width = 90, Left = 850, Top = 650 };
-            Button cancel = new Button { Text = "Cancel", Width = 90, Left = 950, Top = 650 };
-            save.Click += Save_Click;
-            cancel.Click += (sender, e) => Close();
-            Controls.Add(save);
-            Controls.Add(cancel);
         }
 
-        private void Save_Click(object sender, EventArgs e)
+   
+
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
-                string.IsNullOrWhiteSpace(txtNewPassowrd.Text) ||
-                string.IsNullOrWhiteSpace(txtConfirmNewPassword.Text))
+            string.IsNullOrWhiteSpace(txtNewPassowrd.Text) ||
+            string.IsNullOrWhiteSpace(txtConfirmNewPassword.Text))
             {
                 MessageBox.Show("Please fill in all password fields.");
                 return;
@@ -56,7 +52,14 @@ namespace DVLD.Users
             }
 
             MessageBox.Show("Password changed successfully.");
-            Close();
+            this.Close();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+
         }
     }
 }
