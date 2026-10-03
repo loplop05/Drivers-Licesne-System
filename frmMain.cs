@@ -1,5 +1,6 @@
 ﻿using DVLD.People;
 using DVLD.Users;
+using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,14 @@ namespace DVLD
     {
         private Form _currentForm;
 
-        public frmMain()
+        private readonly clsUsers _currentUser;
+
+
+        public frmMain(clsUsers currentUser)
         {
+
+            _currentUser = currentUser;
+
             InitializeComponent();
         }
 
@@ -71,15 +78,11 @@ namespace DVLD
             SwitchToForm(new frmManageUsers());
         }
 
+        private void currentUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+         
+                SwitchToForm(new frmUserDetails(_currentUser.UserID));
 
-
-
-
-
-
-
-
-
-
+        }
     }
 }

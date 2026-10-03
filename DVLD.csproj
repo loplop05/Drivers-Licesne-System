@@ -281,5 +281,14 @@
   <ItemGroup>
     <None Include="Icons\Icons\Delete 32 2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\User 32 -2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Sign Out 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\SignOut 64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

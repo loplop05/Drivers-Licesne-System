@@ -63,7 +63,7 @@ namespace DVLD.Login
                     }
 
                     this.Hide();
-                    frmMain mainForm = new frmMain();
+                    frmMain mainForm = new frmMain(user);
                     mainForm.ShowDialog();
                     this.Close();
 
@@ -75,8 +75,21 @@ namespace DVLD.Login
             }
             catch (Exception ex)
             {
+               
                 MessageBox.Show($"Error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
+            
         }
+
+
+
+
+
+
+
+
+
+
     }
 }
