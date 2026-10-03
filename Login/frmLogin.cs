@@ -65,7 +65,7 @@ namespace DVLD.Login
                     this.Hide();
                     frmMain mainForm = new frmMain(user);
                     mainForm.ShowDialog();
-                    this.Close();
+                    this.Show();
 
                 }
                 else

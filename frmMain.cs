@@ -17,7 +17,7 @@ namespace DVLD
     {
         private Form _currentForm;
 
-        private readonly clsUsers _currentUser;
+        private clsUsers _currentUser;
 
 
         public frmMain(clsUsers currentUser)
@@ -29,10 +29,6 @@ namespace DVLD
         }
 
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
@@ -78,11 +74,51 @@ namespace DVLD
             SwitchToForm(new frmManageUsers());
         }
 
+
+
+
         private void currentUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
          
                 SwitchToForm(new frmUserDetails(_currentUser.UserID));
 
         }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmChangePassword(_currentUser.UserID));
+        }
+
+        private void signOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "Are you sure you want to sign out?",
+                "Sign Out",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result != DialogResult.Yes)
+                return;
+
+            if (_currentForm != null)
+            {
+                _currentForm.Close();
+                _currentForm.Dispose();
+                _currentForm = null;
+            }
+
+            
+            _currentUser = null;
+            Close();
+        }
+
+
+
+
+
+
+
+
     }
 }

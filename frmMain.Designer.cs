@@ -31,24 +31,24 @@
         {
             this.pnlTop = new System.Windows.Forms.Panel();
             this.menuStrip4 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.MsApplications = new System.Windows.Forms.MenuStrip();
-            this.pnlContent = new System.Windows.Forms.Panel();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.currentUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip3 = new System.Windows.Forms.MenuStrip();
             this.MsUsers = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.MSPeople = new System.Windows.Forms.ToolStripMenuItem();
+            this.MsApplications = new System.Windows.Forms.MenuStrip();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.drivingLicesesServicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detainLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlTop.SuspendLayout();
             this.menuStrip4.SuspendLayout();
             this.menuStrip3.SuspendLayout();
@@ -82,71 +82,9 @@
             this.toolStripMenuItem3});
             this.menuStrip4.Location = new System.Drawing.Point(1200, 30);
             this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(259, 58);
+            this.menuStrip4.Size = new System.Drawing.Size(409, 58);
             this.menuStrip4.TabIndex = 9;
             this.menuStrip4.Text = "PeopleStripMenu";
-            // 
-            // menuStrip3
-            // 
-            this.menuStrip3.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip3.ImageScalingSize = new System.Drawing.Size(50, 50);
-            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MsUsers});
-            this.menuStrip3.Location = new System.Drawing.Point(950, 30);
-            this.menuStrip3.Name = "menuStrip3";
-            this.menuStrip3.Size = new System.Drawing.Size(144, 58);
-            this.menuStrip3.TabIndex = 8;
-            this.menuStrip3.Text = "PeopleStripMenu";
-            // 
-            // menuStrip2
-            // 
-            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(50, 50);
-            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.menuStrip2.Location = new System.Drawing.Point(700, 30);
-            this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(159, 58);
-            this.menuStrip2.TabIndex = 7;
-            this.menuStrip2.Text = "PeopleStripMenu";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
-            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MSPeople});
-            this.menuStrip1.Location = new System.Drawing.Point(450, 30);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(157, 58);
-            this.menuStrip1.TabIndex = 6;
-            this.menuStrip1.Text = "PeopleStripMenu";
-            // 
-            // MsApplications
-            // 
-            this.MsApplications.Dock = System.Windows.Forms.DockStyle.None;
-            this.MsApplications.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MsApplications.ImageScalingSize = new System.Drawing.Size(50, 50);
-            this.MsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.applicationsToolStripMenuItem});
-            this.MsApplications.Location = new System.Drawing.Point(200, 30);
-            this.MsApplications.Name = "MsApplications";
-            this.MsApplications.Size = new System.Drawing.Size(216, 58);
-            this.MsApplications.TabIndex = 5;
-            this.MsApplications.Text = "ApplicationStripMenu";
-            // 
-            // pnlContent
-            // 
-            this.pnlContent.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlContent.AutoScroll = true;
-            this.pnlContent.BackColor = System.Drawing.Color.White;
-            this.pnlContent.Location = new System.Drawing.Point(0, 120);
-            this.pnlContent.Name = "pnlContent";
-            this.pnlContent.Size = new System.Drawing.Size(1609, 801);
-            this.pnlContent.TabIndex = 3;
             // 
             // toolStripMenuItem3
             // 
@@ -173,6 +111,7 @@
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(312, 56);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // signOutToolStripMenuItem
             // 
@@ -180,6 +119,20 @@
             this.signOutToolStripMenuItem.Name = "signOutToolStripMenuItem";
             this.signOutToolStripMenuItem.Size = new System.Drawing.Size(312, 56);
             this.signOutToolStripMenuItem.Text = "Sign Out";
+            this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
+            // 
+            // menuStrip3
+            // 
+            this.menuStrip3.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip3.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip3.ImageScalingSize = new System.Drawing.Size(50, 50);
+            this.menuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MsUsers});
+            this.menuStrip3.Location = new System.Drawing.Point(950, 30);
+            this.menuStrip3.Name = "menuStrip3";
+            this.menuStrip3.Size = new System.Drawing.Size(142, 58);
+            this.menuStrip3.TabIndex = 8;
+            this.menuStrip3.Text = "PeopleStripMenu";
             // 
             // MsUsers
             // 
@@ -189,12 +142,38 @@
             this.MsUsers.Text = "Users";
             this.MsUsers.Click += new System.EventHandler(this.MsUsers_Click);
             // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip2.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip2.ImageScalingSize = new System.Drawing.Size(50, 50);
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(700, 30);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(157, 58);
+            this.menuStrip2.TabIndex = 7;
+            this.menuStrip2.Text = "PeopleStripMenu";
+            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Image = global::DVLD.Properties.Resources.Drivers_641;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 54);
             this.toolStripMenuItem1.Text = "Drivers";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(50, 50);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MSPeople});
+            this.menuStrip1.Location = new System.Drawing.Point(450, 30);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(155, 58);
+            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.Text = "PeopleStripMenu";
             // 
             // MSPeople
             // 
@@ -203,6 +182,19 @@
             this.MSPeople.Size = new System.Drawing.Size(147, 54);
             this.MSPeople.Text = "People";
             this.MSPeople.Click += new System.EventHandler(this.MSPeople_Click);
+            // 
+            // MsApplications
+            // 
+            this.MsApplications.Dock = System.Windows.Forms.DockStyle.None;
+            this.MsApplications.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MsApplications.ImageScalingSize = new System.Drawing.Size(50, 50);
+            this.MsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.applicationsToolStripMenuItem});
+            this.MsApplications.Location = new System.Drawing.Point(200, 30);
+            this.MsApplications.Name = "MsApplications";
+            this.MsApplications.Size = new System.Drawing.Size(214, 58);
+            this.MsApplications.TabIndex = 5;
+            this.MsApplications.Text = "ApplicationStripMenu";
             // 
             // applicationsToolStripMenuItem
             // 
@@ -250,6 +242,16 @@
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(404, 56);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlContent.AutoScroll = true;
+            this.pnlContent.BackColor = System.Drawing.Color.White;
+            this.pnlContent.Location = new System.Drawing.Point(0, 120);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1609, 801);
+            this.pnlContent.TabIndex = 3;
             // 
             // frmMain
             // 
