@@ -82,7 +82,7 @@
             this.toolStripMenuItem3});
             this.menuStrip4.Location = new System.Drawing.Point(1200, 30);
             this.menuStrip4.Name = "menuStrip4";
-            this.menuStrip4.Size = new System.Drawing.Size(409, 58);
+            this.menuStrip4.Size = new System.Drawing.Size(259, 58);
             this.menuStrip4.TabIndex = 9;
             this.menuStrip4.Text = "PeopleStripMenu";
             // 
@@ -192,7 +192,7 @@
             this.applicationsToolStripMenuItem});
             this.MsApplications.Location = new System.Drawing.Point(200, 30);
             this.MsApplications.Name = "MsApplications";
-            this.MsApplications.Size = new System.Drawing.Size(214, 58);
+            this.MsApplications.Size = new System.Drawing.Size(364, 58);
             this.MsApplications.TabIndex = 5;
             this.MsApplications.Text = "ApplicationStripMenu";
             // 
@@ -233,12 +233,15 @@
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
+            this.manageApplicationTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.Application_Types_64;
             this.manageApplicationTypesToolStripMenuItem.Name = "manageApplicationTypesToolStripMenuItem";
             this.manageApplicationTypesToolStripMenuItem.Size = new System.Drawing.Size(404, 56);
             this.manageApplicationTypesToolStripMenuItem.Text = "Manage Application Types";
+            this.manageApplicationTypesToolStripMenuItem.Click += new System.EventHandler(this.manageApplicationTypesToolStripMenuItem_Click);
             // 
             // manageTestTypesToolStripMenuItem
             // 
+            this.manageTestTypesToolStripMenuItem.Image = global::DVLD.Properties.Resources.Test_Type_64;
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(404, 56);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";

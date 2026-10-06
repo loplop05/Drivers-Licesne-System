@@ -1,4 +1,5 @@
-﻿using DVLD.People;
+﻿using DVLD.Applications.Applications_Types;
+using DVLD.People;
 using DVLD.Users;
 using DVLD_Business;
 using System;
@@ -69,11 +70,22 @@ namespace DVLD
             SwitchToForm(new frmPeopleManagement());
         }
 
+
+
+
+
+
+       /*
+        * 
+        * 
+        * ACCOUNT SETTINGS + USER 
+        * 
+        */
+
         private void MsUsers_Click(object sender, EventArgs e)
         {
             SwitchToForm(new frmManageUsers());
         }
-
 
 
 
@@ -83,6 +95,7 @@ namespace DVLD
                 SwitchToForm(new frmUserDetails(_currentUser.UserID));
 
         }
+
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -112,6 +125,85 @@ namespace DVLD
             _currentUser = null;
             Close();
         }
+
+
+        /*
+     * 
+     * 
+     * APPLICATION TYPES 
+     * 
+     */
+
+
+
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            SwitchToForm(new frmManageApplicationTypes());
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
