@@ -1,5 +1,6 @@
 ﻿using DVLD.Applications.Applications_Types;
 using DVLD.People;
+using DVLD.Tests.Test_Types;
 using DVLD.Users;
 using DVLD_Business;
 using System;
@@ -144,73 +145,9 @@ namespace DVLD
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmManageTestTypes());
+        }
     }
 }

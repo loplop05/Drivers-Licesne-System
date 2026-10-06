@@ -41,7 +41,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.8F);
-            this.label1.Location = new System.Drawing.Point(183, 27);
+            this.label1.Location = new System.Drawing.Point(274, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(388, 48);
             this.label1.TabIndex = 0;
@@ -50,11 +50,12 @@
             // dbvManageTestTypes
             // 
             this.dbvManageTestTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dbvManageTestTypes.ContextMenuStrip = this.cmsManageTestTypes;
             this.dbvManageTestTypes.Location = new System.Drawing.Point(131, 162);
             this.dbvManageTestTypes.Name = "dbvManageTestTypes";
             this.dbvManageTestTypes.RowHeadersWidth = 51;
             this.dbvManageTestTypes.RowTemplate.Height = 24;
-            this.dbvManageTestTypes.Size = new System.Drawing.Size(511, 224);
+            this.dbvManageTestTypes.Size = new System.Drawing.Size(703, 347);
             this.dbvManageTestTypes.TabIndex = 1;
             this.dbvManageTestTypes.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dbvManageTestTypes_CellMouseDown);
             // 
@@ -77,10 +78,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 565);
+            this.ClientSize = new System.Drawing.Size(909, 572);
             this.Controls.Add(this.dbvManageTestTypes);
             this.Controls.Add(this.label1);
             this.Name = "frmManageTestTypes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmManageTestTypes";
             ((System.ComponentModel.ISupportInitialize)(this.dbvManageTestTypes)).EndInit();
             this.cmsManageTestTypes.ResumeLayout(false);

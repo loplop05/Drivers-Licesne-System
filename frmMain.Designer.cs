@@ -190,7 +190,7 @@
             this.MsApplications.ImageScalingSize = new System.Drawing.Size(50, 50);
             this.MsApplications.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.applicationsToolStripMenuItem});
-            this.MsApplications.Location = new System.Drawing.Point(200, 30);
+            this.MsApplications.Location = new System.Drawing.Point(108, 30);
             this.MsApplications.Name = "MsApplications";
             this.MsApplications.Size = new System.Drawing.Size(364, 58);
             this.MsApplications.TabIndex = 5;
@@ -245,6 +245,7 @@
             this.manageTestTypesToolStripMenuItem.Name = "manageTestTypesToolStripMenuItem";
             this.manageTestTypesToolStripMenuItem.Size = new System.Drawing.Size(404, 56);
             this.manageTestTypesToolStripMenuItem.Text = "Manage Test Types";
+            this.manageTestTypesToolStripMenuItem.Click += new System.EventHandler(this.manageTestTypesToolStripMenuItem_Click);
             // 
             // pnlContent
             // 

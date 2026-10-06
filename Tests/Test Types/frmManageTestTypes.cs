@@ -34,26 +34,26 @@ namespace DVLD.Tests.Test_Types
 
         }
 
-        private int _GetSelectedApplicationTypeID()
+        private int _GetSelectedTestTypeID()
         {
             if (dbvManageTestTypes.CurrentRow == null)
                 return -1;
 
             return Convert.ToInt32(
-                dbvManageTestTypes.CurrentRow.Cells["ApplicationTypeID"].Value);
+                dbvManageTestTypes.CurrentRow.Cells["TestTypeID"].Value);
         }
 
         private void editTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int ApplicationTypeID = _GetSelectedApplicationTypeID();
+            int TestTypeID = _GetSelectedTestTypeID();
 
-            if (ApplicationTypeID == -1)
+            if (TestTypeID == -1)
             {
-                MessageBox.Show("Please select an application type first.");
+                MessageBox.Show("Please select a test type first.");
                 return;
             }
 
-            frmUpdateApplicationType frm = new frmUpdateApplicationType(ApplicationTypeID);
+            frmUpdateTestTypes frm = new frmUpdateTestTypes(TestTypeID);
             frm.ShowDialog();
 
             _ListAllTestTypes();
