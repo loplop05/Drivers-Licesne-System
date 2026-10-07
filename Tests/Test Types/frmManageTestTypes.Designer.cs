@@ -40,8 +40,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.8F);
-            this.label1.Location = new System.Drawing.Point(274, 43);
+            this.label1.Location = new System.Drawing.Point(512, 79);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(388, 48);
             this.label1.TabIndex = 0;
@@ -49,9 +50,10 @@
             // 
             // dbvManageTestTypes
             // 
+            this.dbvManageTestTypes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dbvManageTestTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dbvManageTestTypes.ContextMenuStrip = this.cmsManageTestTypes;
-            this.dbvManageTestTypes.Location = new System.Drawing.Point(131, 162);
+            this.dbvManageTestTypes.Location = new System.Drawing.Point(359, 170);
             this.dbvManageTestTypes.Name = "dbvManageTestTypes";
             this.dbvManageTestTypes.RowHeadersWidth = 51;
             this.dbvManageTestTypes.RowTemplate.Height = 24;
@@ -78,7 +80,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 528);
+            this.BackColor = System.Drawing.SystemColors.Desktop;
+            this.ClientSize = new System.Drawing.Size(1231, 528);
             this.Controls.Add(this.dbvManageTestTypes);
             this.Controls.Add(this.label1);
             this.Name = "frmManageTestTypes";
