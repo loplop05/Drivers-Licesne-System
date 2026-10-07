@@ -192,7 +192,7 @@
             this.applicationsToolStripMenuItem});
             this.MsApplications.Location = new System.Drawing.Point(108, 30);
             this.MsApplications.Name = "MsApplications";
-            this.MsApplications.Size = new System.Drawing.Size(364, 58);
+            this.MsApplications.Size = new System.Drawing.Size(214, 58);
             this.MsApplications.TabIndex = 5;
             this.MsApplications.Text = "ApplicationStripMenu";
             // 
@@ -251,7 +251,7 @@
             // 
             this.pnlContent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlContent.AutoScroll = true;
-            this.pnlContent.BackColor = System.Drawing.Color.White;
+            this.pnlContent.BackColor = System.Drawing.Color.Black;
             this.pnlContent.Location = new System.Drawing.Point(0, 120);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1609, 801);
@@ -261,6 +261,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1609, 921);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.pnlTop);
@@ -268,7 +269,6 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVLD - Driver and Vehicle Licensing Department";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.menuStrip4.ResumeLayout(false);
