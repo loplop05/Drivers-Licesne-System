@@ -61,6 +61,12 @@
     <Compile Include="Applications\Applications Types\frmUpdateApplicationType.Designer.cs">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.Designer.cs">
+      <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     <EmbeddedResource Include="Applications\Applications Types\frmUpdateApplicationType.resx">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.resx">
+      <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
@@ -236,7 +245,6 @@
   <ItemGroup>
     <Folder Include="Applications\Controls\" />
     <Folder Include="Applications\International License\" />
-    <Folder Include="Applications\Local Driving License\" />
     <Folder Include="Applications\Release Detained License\" />
     <Folder Include="Applications\Renew Driving License\" />
     <Folder Include="Applications\ReplaceLostOrDamageLicesne\" />
@@ -332,6 +340,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Icons\Application Types 512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\New Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Renew Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Damaged Driving License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Release Detained License 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Retake Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Local 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\International 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Local Driving License 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

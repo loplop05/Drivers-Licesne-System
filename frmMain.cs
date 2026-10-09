@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.Applications_Types;
+using DVLD.Applications.Local_Driving_License;
 using DVLD.People;
 using DVLD.Tests.Test_Types;
 using DVLD.Users;
@@ -148,6 +149,11 @@ namespace DVLD
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new frmManageTestTypes());
+        }
+
+        private void localLicsenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmNewLocalDrivingLicsenseApplication(_currentUser));
         }
     }
 }

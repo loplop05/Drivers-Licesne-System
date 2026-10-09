@@ -36,6 +36,7 @@
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.ctrlPersonDetails1 = new DVLD.People.Controls.ctrlPersonDetails();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.lblUserID = new System.Windows.Forms.Label();
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ctrlPersonDetails1 = new DVLD.People.Controls.ctrlPersonDetails();
             this.tcAddNewUser.SuspendLayout();
             this.tabPersonalInfo.SuspendLayout();
             this.tpLoginInfo.SuspendLayout();
@@ -136,6 +136,14 @@
             this.label5.Size = new System.Drawing.Size(86, 22);
             this.label5.TabIndex = 1;
             this.label5.Text = "Find By : ";
+            // 
+            // ctrlPersonDetails1
+            // 
+            this.ctrlPersonDetails1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ctrlPersonDetails1.Location = new System.Drawing.Point(80, 105);
+            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
+            this.ctrlPersonDetails1.Size = new System.Drawing.Size(875, 399);
+            this.ctrlPersonDetails1.TabIndex = 0;
             // 
             // tpLoginInfo
             // 
@@ -260,14 +268,6 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // ctrlPersonDetails1
-            // 
-            this.ctrlPersonDetails1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.ctrlPersonDetails1.Location = new System.Drawing.Point(80, 105);
-            this.ctrlPersonDetails1.Name = "ctrlPersonDetails1";
-            this.ctrlPersonDetails1.Size = new System.Drawing.Size(875, 399);
-            this.ctrlPersonDetails1.TabIndex = 0;
             // 
             // frmAddNewUser
             // 
