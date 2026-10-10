@@ -31,10 +31,11 @@ namespace DVLD.Applications.Local_Driving_License
 
             // Populate filter options
             cbFilterBy.Items.Add("None");
-            cbFilterBy.Items.Add("LocalDrivingLicenseApplicationID");
-            cbFilterBy.Items.Add("ApplicationID");
-            cbFilterBy.Items.Add("PersonID");
-            cbFilterBy.Items.Add("LicenseClassID");
+            cbFilterBy.Items.Add("L.D.L.AppID");
+            cbFilterBy.Items.Add("National No");
+            cbFilterBy.Items.Add("Full Name");
+            cbFilterBy.Items.Add("Driving Class");
+            cbFilterBy.Items.Add("Status");
             cbFilterBy.SelectedIndex = 0;
 
             _RefreshLocalDrivingLicenseApplicationsList();
@@ -63,7 +64,7 @@ namespace DVLD.Applications.Local_Driving_License
             if (dgvLocalDrivingLicsenseApplictions.CurrentRow == null)
                 return -1;
 
-            return Convert.ToInt32(dgvLocalDrivingLicsenseApplictions.CurrentRow.Cells["LocalDrivingLicenseApplicationID"].Value);
+            return Convert.ToInt32(dgvLocalDrivingLicsenseApplictions.CurrentRow.Cells["L.D.L.AppID"].Value);
         }
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)

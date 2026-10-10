@@ -133,5 +133,11 @@ namespace DVLD_Business
         {
             return clsLocalDrivingLicenseApplicationsData.DeleteLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID);
         }
+
+        // CHECK IF PERSON HAS ACTIVE APPLICATION FOR LICENSE CLASS
+        public static bool DoesPersonHaveActiveApplicationForLicenseClass(int PersonID, int LicenseClassID)
+        {
+            return clsLocalDrivingLicenseApplicationsData.DoesPersonHaveActiveApplicationForLicenseClass(PersonID, LicenseClassID);
+        }
     }
 }

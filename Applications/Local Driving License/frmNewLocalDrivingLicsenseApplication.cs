@@ -136,6 +136,20 @@ namespace DVLD.Applications.Local_Driving_License
                 return false;
             }
 
+            // Check if person already has an active application for this license class
+            int licenseClassID = Convert.ToInt32(cbLicsenseClass.SelectedValue);
+            if (clsLocalDrivingLicenseApplications.DoesPersonHaveActiveApplicationForLicenseClass(_PersonID, licenseClassID))
+            {
+                MessageBox.Show(
+                    "This person already has an active application for this license class. " +
+                    "You cannot apply for the same license class twice unless the previous application is cancelled.",
+                    "Duplicate Application",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return false;
+            }
+
             return true;
         }
 

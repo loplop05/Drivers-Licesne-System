@@ -154,7 +154,24 @@ namespace DVLD_DataAccess
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
-                string query = "SELECT * FROM LocalDrivingLicenseApplications";
+                string query = @"
+                    SELECT
+                        LD.LocalDrivingLicenseApplicationID AS 'L.D.L.AppID',
+                        LC.ClassName AS 'Driving Class',
+                        P.NationalNo AS 'National No',
+                        (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) AS 'Full Name',
+                        A.ApplicationDate AS 'Application Date',
+                        0 AS 'Passed Tests',
+                        CASE
+                            WHEN A.ApplicationStatus = 1 THEN 'New'
+                            WHEN A.ApplicationStatus = 2 THEN 'Cancelled'
+                            WHEN A.ApplicationStatus = 3 THEN 'Completed'
+                            ELSE 'Unknown'
+                        END AS 'Status'
+                    FROM LocalDrivingLicenseApplications LD
+                    INNER JOIN Applications A ON LD.ApplicationID = A.ApplicationID
+                    INNER JOIN People P ON A.ApplicantPersonID = P.PersonID
+                    INNER JOIN LicenseClasses LC ON LD.LicenseClassID = LC.LicenseClassID";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -175,20 +192,49 @@ namespace DVLD_DataAccess
         {
             DataTable dt = new DataTable();
 
-            string query = "SELECT * FROM LocalDrivingLicenseApplications";
+            string query = @"
+                SELECT
+                    LD.LocalDrivingLicenseApplicationID AS 'L.D.L.AppID',
+                    LC.ClassName AS 'Driving Class',
+                    P.NationalNo AS 'National No',
+                    (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) AS 'Full Name',
+                    A.ApplicationDate AS 'Application Date',
+                    0 AS 'Passed Tests',
+                    CASE
+                        WHEN A.ApplicationStatus = 1 THEN 'New'
+                        WHEN A.ApplicationStatus = 2 THEN 'Cancelled'
+                        WHEN A.ApplicationStatus = 3 THEN 'Completed'
+                        ELSE 'Unknown'
+                    END AS 'Status'
+                FROM LocalDrivingLicenseApplications LD
+                INNER JOIN Applications A ON LD.ApplicationID = A.ApplicationID
+                INNER JOIN People P ON A.ApplicantPersonID = P.PersonID
+                INNER JOIN LicenseClasses LC ON LD.LicenseClassID = LC.LicenseClassID";
 
             switch (Filter)
             {
-                case "LocalDrivingLicenseApplicationID":
-                    query += " WHERE LocalDrivingLicenseApplicationID LIKE '%' + @Value + '%'";
+                case "L.D.L.AppID":
+                    query += " WHERE LD.LocalDrivingLicenseApplicationID LIKE '%' + @Value + '%'";
                     break;
 
                 case "ApplicationID":
-                    query += " WHERE ApplicationID LIKE '%' + @Value + '%'";
+                    query += " WHERE A.ApplicationID LIKE '%' + @Value + '%'";
                     break;
 
-                case "LicenseClassID":
-                    query += " WHERE LicenseClassID LIKE '%' + @Value + '%'";
+                case "National No":
+                    query += " WHERE P.NationalNo LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Full Name":
+                    query += " WHERE (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Driving Class":
+                    query += " WHERE LC.ClassName LIKE '%' + @Value + '%'";
+                    break;
+
+                case "Status":
+                    query += " WHERE CASE WHEN A.ApplicationStatus = 1 THEN 'New' WHEN A.ApplicationStatus = 2 THEN 'Cancelled' WHEN A.ApplicationStatus = 3 THEN 'Completed' ELSE 'Unknown' END LIKE '%' + @Value + '%'";
                     break;
 
                 case "None":
@@ -248,6 +294,52 @@ namespace DVLD_DataAccess
             }
 
             return rowsAffected > 0;
+        }
+
+        // CHECK IF PERSON HAS ACTIVE APPLICATION FOR LICENSE CLASS
+        public static bool DoesPersonHaveActiveApplicationForLicenseClass(int PersonID, int LicenseClassID)
+        {
+            bool hasActiveApplication = false;
+
+            SqlConnection connection =
+                new SqlConnection(clsDataAccessSettings.connectionString);
+
+            string query = @"
+                SELECT 1
+                FROM LocalDrivingLicenseApplications LD
+                INNER JOIN Applications A ON LD.ApplicationID = A.ApplicationID
+                WHERE A.ApplicantPersonID = @PersonID
+                AND LD.LicenseClassID = @LicenseClassID
+                AND A.ApplicationStatus != 2";// -- 2 = Cancelled 
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    hasActiveApplication = true;
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                hasActiveApplication = false;
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return hasActiveApplication;
         }
     }
 }

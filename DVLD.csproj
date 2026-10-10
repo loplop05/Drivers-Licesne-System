@@ -374,5 +374,11 @@
   <ItemGroup>
     <None Include="Icons\Icons\Local Driving License 512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\AddAppointment 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\New Application 64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
