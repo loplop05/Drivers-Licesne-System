@@ -155,5 +155,15 @@ namespace DVLD
         {
             SwitchToForm(new frmNewLocalDrivingLicsenseApplication(_currentUser));
         }
+
+        private void manageLocalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmManageLocalDrivingLisenseApplictions(_currentUser));
+        }
+
+        private void localDrivingLicsenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmManageLocalDrivingLisenseApplictions(_currentUser));
+        }
     }
 }

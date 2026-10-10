@@ -240,14 +240,14 @@
             this.newDrivingLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.newDrivingLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.New_Driving_License_32;
             this.newDrivingLicsenseToolStripMenuItem.Name = "newDrivingLicsenseToolStripMenuItem";
-            this.newDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
+            this.newDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
             this.newDrivingLicsenseToolStripMenuItem.Text = "New Driving Licsense ";
             // 
             // localLicsenseToolStripMenuItem
             // 
             this.localLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Local_321;
             this.localLicsenseToolStripMenuItem.Name = "localLicsenseToolStripMenuItem";
-            this.localLicsenseToolStripMenuItem.Size = new System.Drawing.Size(314, 56);
+            this.localLicsenseToolStripMenuItem.Size = new System.Drawing.Size(284, 32);
             this.localLicsenseToolStripMenuItem.Text = "Local Licsense";
             this.localLicsenseToolStripMenuItem.Click += new System.EventHandler(this.localLicsenseToolStripMenuItem_Click);
             // 
@@ -255,7 +255,7 @@
             // 
             this.internationalLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.International_32;
             this.internationalLicsenseToolStripMenuItem.Name = "internationalLicsenseToolStripMenuItem";
-            this.internationalLicsenseToolStripMenuItem.Size = new System.Drawing.Size(314, 56);
+            this.internationalLicsenseToolStripMenuItem.Size = new System.Drawing.Size(284, 32);
             this.internationalLicsenseToolStripMenuItem.Text = "International Licsense";
             // 
             // renewDrivingLicsenseToolStripMenuItem
@@ -263,7 +263,7 @@
             this.renewDrivingLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.renewDrivingLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Renew_Driving_License_32;
             this.renewDrivingLicsenseToolStripMenuItem.Name = "renewDrivingLicsenseToolStripMenuItem";
-            this.renewDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
+            this.renewDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
             this.renewDrivingLicsenseToolStripMenuItem.Text = "Renew Driving Licsense";
             // 
             // replaceForLostOrDamagedLicsenseToolStripMenuItem
@@ -271,7 +271,7 @@
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Damaged_Driving_License_32;
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Name = "replaceForLostOrDamagedLicsenseToolStripMenuItem";
-            this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
+            this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Text = "Replace for Lost or Damaged Licsense";
             // 
             // releaseDetainedDrivingLicsenseToolStripMenuItem
@@ -279,7 +279,7 @@
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Release_Detained_License_32;
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Name = "releaseDetainedDrivingLicsenseToolStripMenuItem";
-            this.releaseDetainedDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
+            this.releaseDetainedDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Text = "Release Detained Driving Licsense";
             // 
             // retakeTestToolStripMenuItem
@@ -287,7 +287,7 @@
             this.retakeTestToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.retakeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Retake_Test_32;
             this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
-            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
+            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
             this.retakeTestToolStripMenuItem.Text = "Retake Test";
             // 
             // manageApplicationsToolStripMenuItem
@@ -306,6 +306,7 @@
             this.localDrivingLicsenseApplicationsToolStripMenuItem.Name = "localDrivingLicsenseApplicationsToolStripMenuItem";
             this.localDrivingLicsenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(490, 56);
             this.localDrivingLicsenseApplicationsToolStripMenuItem.Text = "Local Driving Licsense Applications";
+            this.localDrivingLicsenseApplicationsToolStripMenuItem.Click += new System.EventHandler(this.localDrivingLicsenseApplicationsToolStripMenuItem_Click);
             // 
             // internationalLicsenseApplicationsToolStripMenuItem
             // 
