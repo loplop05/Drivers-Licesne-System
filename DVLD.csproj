@@ -79,6 +79,7 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\ValidationHelper.cs" />
     <Compile Include="Login\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,7 +259,6 @@
     <Folder Include="Applications\Renew Driving License\" />
     <Folder Include="Applications\ReplaceLostOrDamageLicesne\" />
     <Folder Include="Drivers\" />
-    <Folder Include="Global Classes\" />
     <Folder Include="Licenses\Controls\" />
     <Folder Include="Licenses\Detain License\" />
     <Folder Include="Licenses\International License\" />

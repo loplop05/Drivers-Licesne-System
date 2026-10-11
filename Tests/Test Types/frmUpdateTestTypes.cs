@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.GlobalClasses;
 using DVLD_Business;
+
 
 namespace DVLD.Tests.Test_Types
 {
@@ -15,6 +17,7 @@ namespace DVLD.Tests.Test_Types
     {
         private int _TestTypeID = -1;
         private clsTestTypes _TestType;
+        private ValidationHelper ValidationHelper;
 
         public frmUpdateTestTypes(int TestTypeID)
         {
@@ -48,24 +51,18 @@ namespace DVLD.Tests.Test_Types
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtTitle.Text))
+            if (!ValidationHelper.ValidateRequiredField(txtTitle, "test type title"))
             {
-                MessageBox.Show("Please enter test type title.");
-                txtTitle.Focus();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtDescription.Text))
+            if (!ValidationHelper.ValidateRequiredField(txtDescription, "test type description"))
             {
-                MessageBox.Show("Please enter test type description.");
-                txtDescription.Focus();
                 return;
             }
 
-            if (!decimal.TryParse(txtFees.Text.Trim(), out decimal TestTypeFees))
+            if (!ValidationHelper.ValidateDecimalInput(txtFees, "test type fee", out decimal TestTypeFees))
             {
-                MessageBox.Show("Please enter a valid test type fee.");
-                txtFees.Focus();
                 return;
             }
 

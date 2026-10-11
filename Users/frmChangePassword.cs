@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD_Business;
+using DVLD.GlobalClasses;
 
 namespace DVLD.Users
 {
@@ -31,11 +32,18 @@ namespace DVLD.Users
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtCurrentPassword.Text) ||
-            string.IsNullOrWhiteSpace(txtNewPassowrd.Text) ||
-            string.IsNullOrWhiteSpace(txtConfirmNewPassword.Text))
+            if (!ValidationHelper.ValidateRequiredField(txtCurrentPassword, "current password"))
             {
-                MessageBox.Show("Please fill in all password fields.");
+                return;
+            }
+
+            if (!ValidationHelper.ValidateRequiredField(txtNewPassowrd, "new password"))
+            {
+                return;
+            }
+
+            if (!ValidationHelper.ValidateRequiredField(txtConfirmNewPassword, "confirm new password"))
+            {
                 return;
             }
 
