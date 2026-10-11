@@ -1,4 +1,4 @@
-﻿using DVLD_Business;
+using DVLD_Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -80,6 +80,35 @@ namespace DVLD.Applications.Local_Driving_License
                 return;
 
             // Details form would need to be created
+        }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvLocalDrivingLicsenseApplictions.CurrentRow == null)
+            {
+                MessageBox.Show("Please select an application first.");
+                return;
+            }
+
+            int applicationID = GetSelectedApplicationID();
+            if (applicationID == -1)
+                return;
+
+            clsLocalDrivingLicenseApplications application = clsLocalDrivingLicenseApplications.Find(applicationID);
+            if (application == null)
+            {
+                MessageBox.Show("Application not found.");
+                return;
+            }
+
+            string details = $"Local Driving License Application Details:\n\n" +
+                           $"Application ID: {application.LocalDrivingLicenseApplicationID}\n" +
+                           $"Related Application ID: {application.ApplicationID}\n" +
+                           $"License Class ID: {application.LicenseClassID}\n\n" +
+                           $"Note: For full details including applicant information, application dates, and status, " +
+                           $"a dedicated application details form would need to be implemented.";
+
+            MessageBox.Show(details, "Application Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void addNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)
