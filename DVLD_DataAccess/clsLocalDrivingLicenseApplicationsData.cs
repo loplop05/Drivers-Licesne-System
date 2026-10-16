@@ -19,13 +19,14 @@ namespace DVLD_DataAccess
                     A.ApplicationStatus,
                     A.LastStatusDate,
                     A.PaidFees,
-                    A.CreatedByUserID,
+                    U.Username AS CreatedBy,
                     A.ApplicantPersonID,
                     (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) AS FullName
                 FROM LocalDrivingLicenseApplications LD
                 INNER JOIN Applications A ON LD.ApplicationID = A.ApplicationID
                 INNER JOIN People P ON A.ApplicantPersonID = P.PersonID
                 INNER JOIN LicenseClasses LC ON LD.LicenseClassID = LC.LicenseClassID
+                INNER JOIN Users U ON A.CreatedByUserID = U.UserID
                 WHERE LD.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID", connection))
             {
                 command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
@@ -194,7 +195,11 @@ namespace DVLD_DataAccess
                         P.NationalNo AS 'National No',
                         (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) AS 'Full Name',
                         A.ApplicationDate AS 'Application Date',
-                        0 AS 'Passed Tests',
+                        (SELECT COUNT(*)
+                         FROM Tests T
+                         INNER JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+                         WHERE TA.LocalDrivingLicenseApplicationID = LD.LocalDrivingLicenseApplicationID
+                           AND T.TestResult = 1) AS 'Passed Tests',
                         CASE
                             WHEN A.ApplicationStatus = 1 THEN 'New'
                             WHEN A.ApplicationStatus = 2 THEN 'Cancelled'
@@ -232,7 +237,11 @@ namespace DVLD_DataAccess
                     P.NationalNo AS 'National No',
                     (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) AS 'Full Name',
                     A.ApplicationDate AS 'Application Date',
-                    0 AS 'Passed Tests',
+                    (SELECT COUNT(*)
+                     FROM Tests T
+                     INNER JOIN TestAppointments TA ON T.TestAppointmentID = TA.TestAppointmentID
+                     WHERE TA.LocalDrivingLicenseApplicationID = LD.LocalDrivingLicenseApplicationID
+                       AND T.TestResult = 1) AS 'Passed Tests',
                     CASE
                         WHEN A.ApplicationStatus = 1 THEN 'New'
                         WHEN A.ApplicationStatus = 2 THEN 'Cancelled'

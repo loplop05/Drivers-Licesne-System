@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvLocalDrivingLicsenseApplictions = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -70,15 +72,31 @@
             // 
             this.dgvLocalDrivingLicsenseApplictions.AllowUserToAddRows = false;
             this.dgvLocalDrivingLicsenseApplictions.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalDrivingLicsenseApplictions.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLocalDrivingLicsenseApplictions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLocalDrivingLicsenseApplictions.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLocalDrivingLicsenseApplictions.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLocalDrivingLicsenseApplictions.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvLocalDrivingLicsenseApplictions.Location = new System.Drawing.Point(249, 279);
+            this.dgvLocalDrivingLicsenseApplictions.Location = new System.Drawing.Point(149, 279);
             this.dgvLocalDrivingLicsenseApplictions.Name = "dgvLocalDrivingLicsenseApplictions";
             this.dgvLocalDrivingLicsenseApplictions.ReadOnly = true;
-            this.dgvLocalDrivingLicsenseApplictions.RowHeadersWidth = 51;
+            this.dgvLocalDrivingLicsenseApplictions.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvLocalDrivingLicsenseApplictions.RowTemplate.Height = 24;
-            this.dgvLocalDrivingLicsenseApplictions.Size = new System.Drawing.Size(1075, 282);
+            this.dgvLocalDrivingLicsenseApplictions.Size = new System.Drawing.Size(1278, 493);
             this.dgvLocalDrivingLicsenseApplictions.TabIndex = 3;
             this.dgvLocalDrivingLicsenseApplictions.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
@@ -153,6 +171,7 @@
             this.scheduleVisionTestToolStripMenuItem1.Name = "scheduleVisionTestToolStripMenuItem1";
             this.scheduleVisionTestToolStripMenuItem1.Size = new System.Drawing.Size(286, 32);
             this.scheduleVisionTestToolStripMenuItem1.Text = "Schedule Written Test";
+            this.scheduleVisionTestToolStripMenuItem1.Click += new System.EventHandler(this.scheduleWrittenTestToolStripMenuItem_Click);
             // 
             // scheduleVisionTestToolStripMenuItem2
             // 
@@ -160,6 +179,7 @@
             this.scheduleVisionTestToolStripMenuItem2.Name = "scheduleVisionTestToolStripMenuItem2";
             this.scheduleVisionTestToolStripMenuItem2.Size = new System.Drawing.Size(286, 32);
             this.scheduleVisionTestToolStripMenuItem2.Text = "Schedule Street Test";
+            this.scheduleVisionTestToolStripMenuItem2.Click += new System.EventHandler(this.scheduleStreetTestToolStripMenuItem_Click);
             // 
             // issueDrivingLicenseToolStripMenuItem
             // 
@@ -215,7 +235,7 @@
             // 
             this.btnAddNewApplication.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.btnAddNewApplication.Image = global::DVLD.Properties.Resources.New_Application_64;
-            this.btnAddNewApplication.Location = new System.Drawing.Point(1212, 196);
+            this.btnAddNewApplication.Location = new System.Drawing.Point(1301, 196);
             this.btnAddNewApplication.Name = "btnAddNewApplication";
             this.btnAddNewApplication.Size = new System.Drawing.Size(112, 77);
             this.btnAddNewApplication.TabIndex = 7;
@@ -246,7 +266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1450, 648);
+            this.ClientSize = new System.Drawing.Size(1584, 776);
             this.Controls.Add(this.btnAddNewApplication);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.label2);

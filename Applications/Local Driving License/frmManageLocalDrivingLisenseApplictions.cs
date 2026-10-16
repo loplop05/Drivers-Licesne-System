@@ -22,12 +22,18 @@ namespace DVLD.Applications.Local_Driving_License
                 txtFilterValue.Text.Trim()
             );
             dgvLocalDrivingLicsenseApplictions.DataSource = dt;
+            dgvLocalDrivingLicsenseApplictions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLocalDrivingLicsenseApplictions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvLocalDrivingLicsenseApplictions.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
         }
 
         public frmManageLocalDrivingLisenseApplictions(clsUsers currentUser)
         {
             InitializeComponent();
             _currentUser = currentUser;
+            contextMenuStrip1.Opening += contextMenuStrip1_Opening;
+            scheduleVisionTestToolStripMenuItem1.Enabled = false;
+            scheduleVisionTestToolStripMenuItem2.Enabled = false;
 
             // Populate filter options
             cbFilterBy.Items.Add("None");
@@ -127,17 +133,63 @@ namespace DVLD.Applications.Local_Driving_License
             }
 
             int applicationID = GetSelectedApplicationID();
+            string status = dgvLocalDrivingLicsenseApplictions.CurrentRow.Cells["Status"].Value.ToString();
+            if (status == "Cancelled")
+            {
+                MessageBox.Show("This application was cancelled. The applicant must submit a new application.");
+                return;
+            }
+            if (status == "Completed")
+            {
+                MessageBox.Show("This application is completed and cannot schedule tests.");
+                return;
+            }
             if (applicationID == -1 || clsLocalDrivingLicenseApplications.Find(applicationID) == null)
             {
                 MessageBox.Show("Application not found.");
                 return;
             }
 
-            using (frmSchedualeVisionTestAppointment scheduleForm =
-                new frmSchedualeVisionTestAppointment(applicationID))
+           frmVisionTestAppointment  frm = new frmVisionTestAppointment(applicationID, _currentUser.UserID);
+            frm.ShowDialog(this);
+        }
+
+
+
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            int applicationID = GetSelectedApplicationID();
+            string status = dgvLocalDrivingLicsenseApplictions.CurrentRow == null ? "" :
+                dgvLocalDrivingLicsenseApplictions.CurrentRow.Cells["Status"].Value.ToString();
+            bool active = status == "New";
+            bool visionPassed = active && applicationID > 0 && clsTestAppointments.HasPassedVisionTest(applicationID);
+            bool writtenPassed = visionPassed && clsTestAppointments.HasPassedWrittenTest(applicationID);
+
+            scheduleVisionTestToolStripMenuItem.Enabled = active && applicationID > 0 && !visionPassed;
+            scheduleVisionTestToolStripMenuItem1.Enabled = visionPassed;
+            scheduleVisionTestToolStripMenuItem2.Enabled = writtenPassed;
+
+            
+            
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!scheduleVisionTestToolStripMenuItem1.Enabled)
+                return;
+
+            using (frmWrtittenTestAppointment  frm =
+                new frmWrtittenTestAppointment(GetSelectedApplicationID(), _currentUser.UserID))
             {
-                scheduleForm.ShowDialog(this);
+                frm.ShowDialog(this);
             }
+        }
+
+        private void scheduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!scheduleVisionTestToolStripMenuItem2.Enabled)
+                return;
         }
 
 

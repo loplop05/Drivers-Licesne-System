@@ -43,7 +43,7 @@ namespace DVLD.Applications.Local_Driving_License
             lblApplicant.Text = row["FullName"].ToString();
             lblDate.Text = Convert.ToDateTime(row["ApplicationDate"]).ToShortDateString();
             lblStatusDate.Text = Convert.ToDateTime(row["LastStatusDate"]).ToShortDateString();
-            lblCreateByUser.Text = row["CreatedByUserID"].ToString();
+            lblCreateByUser.Text = row["CreatedBy"].ToString();
             lblPassedTests.Text = "0/3";
         }
 

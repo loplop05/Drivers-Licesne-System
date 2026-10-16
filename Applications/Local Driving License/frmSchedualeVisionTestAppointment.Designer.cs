@@ -41,12 +41,14 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblRetakeAppFees = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.lblRetakeTestAppID = new System.Windows.Forms.Label();
-            this.ass = new System.Windows.Forms.Label();
             this.lblRetakeTotalFees = new System.Windows.Forms.Label();
+            this.ass = new System.Windows.Forms.Label();
+            this.lblRetakeTestAppID = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblRetakeAppFees = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -186,45 +188,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Retake Test Info ";
             // 
-            // label9
+            // lblRetakeTotalFees
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label9.Location = new System.Drawing.Point(31, 28);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(169, 22);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Retake App Fees  : ";
-            // 
-            // lblRetakeAppFees
-            // 
-            this.lblRetakeAppFees.AutoSize = true;
-            this.lblRetakeAppFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblRetakeAppFees.Location = new System.Drawing.Point(206, 28);
-            this.lblRetakeAppFees.Name = "lblRetakeAppFees";
-            this.lblRetakeAppFees.Size = new System.Drawing.Size(20, 22);
-            this.lblRetakeAppFees.TabIndex = 15;
-            this.lblRetakeAppFees.Text = "0";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.label10.Location = new System.Drawing.Point(35, 83);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(187, 22);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "Retake Test App ID  : ";
-            // 
-            // lblRetakeTestAppID
-            // 
-            this.lblRetakeTestAppID.AutoSize = true;
-            this.lblRetakeTestAppID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblRetakeTestAppID.Location = new System.Drawing.Point(228, 83);
-            this.lblRetakeTestAppID.Name = "lblRetakeTestAppID";
-            this.lblRetakeTestAppID.Size = new System.Drawing.Size(40, 22);
-            this.lblRetakeTestAppID.TabIndex = 17;
-            this.lblRetakeTestAppID.Text = "N/A";
+            this.lblRetakeTotalFees.AutoSize = true;
+            this.lblRetakeTotalFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.lblRetakeTotalFees.Location = new System.Drawing.Point(446, 28);
+            this.lblRetakeTotalFees.Name = "lblRetakeTotalFees";
+            this.lblRetakeTotalFees.Size = new System.Drawing.Size(30, 22);
+            this.lblRetakeTotalFees.TabIndex = 19;
+            this.lblRetakeTotalFees.Text = "10";
             // 
             // ass
             // 
@@ -236,21 +208,73 @@
             this.ass.TabIndex = 18;
             this.ass.Text = "Total Fees  : ";
             // 
-            // lblRetakeTotalFees
+            // lblRetakeTestAppID
             // 
-            this.lblRetakeTotalFees.AutoSize = true;
-            this.lblRetakeTotalFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            this.lblRetakeTotalFees.Location = new System.Drawing.Point(446, 28);
-            this.lblRetakeTotalFees.Name = "lblRetakeTotalFees";
-            this.lblRetakeTotalFees.Size = new System.Drawing.Size(30, 22);
-            this.lblRetakeTotalFees.TabIndex = 19;
-            this.lblRetakeTotalFees.Text = "10";
+            this.lblRetakeTestAppID.AutoSize = true;
+            this.lblRetakeTestAppID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.lblRetakeTestAppID.Location = new System.Drawing.Point(228, 83);
+            this.lblRetakeTestAppID.Name = "lblRetakeTestAppID";
+            this.lblRetakeTestAppID.Size = new System.Drawing.Size(40, 22);
+            this.lblRetakeTestAppID.TabIndex = 17;
+            this.lblRetakeTestAppID.Text = "N/A";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label10.Location = new System.Drawing.Point(35, 83);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(187, 22);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Retake Test App ID  : ";
+            // 
+            // lblRetakeAppFees
+            // 
+            this.lblRetakeAppFees.AutoSize = true;
+            this.lblRetakeAppFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.lblRetakeAppFees.Location = new System.Drawing.Point(206, 28);
+            this.lblRetakeAppFees.Name = "lblRetakeAppFees";
+            this.lblRetakeAppFees.Size = new System.Drawing.Size(20, 22);
+            this.lblRetakeAppFees.TabIndex = 15;
+            this.lblRetakeAppFees.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.label9.Location = new System.Drawing.Point(31, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(169, 22);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Retake App Fees  : ";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(563, 538);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(98, 38);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(295, 600);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(98, 38);
+            this.btnClose.TabIndex = 15;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmSchedualeVisionTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 611);
+            this.ClientSize = new System.Drawing.Size(736, 650);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.dateTimePicker1);
@@ -265,8 +289,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmSchedualeVisionTestAppointment";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSchedualeVisionTestAppointment";
-            this.Load += new System.EventHandler(this.frmSchedualeVisionTestAppointment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -296,5 +320,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lblRetakeAppFees;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnClose;
     }
 }
