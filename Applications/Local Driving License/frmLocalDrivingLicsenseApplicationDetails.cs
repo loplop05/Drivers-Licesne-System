@@ -12,9 +12,11 @@ namespace DVLD.Applications.Local_Driving_License
 {
     public partial class frmLocalDrivingLicsenseApplicationDetails : Form
     {
-        public frmLocalDrivingLicsenseApplicationDetails()
+        public frmLocalDrivingLicsenseApplicationDetails(int localDrivingLicenseApplicationID)
         {
             InitializeComponent();
+            ctrlLocalDrivingLicenseApplicationInfo1.LoadDrivingLicsenseApplicationInfo(
+                localDrivingLicenseApplicationID);
         }
     }
 }

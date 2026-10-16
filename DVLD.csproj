@@ -61,6 +61,12 @@
     <Compile Include="Applications\Applications Types\frmUpdateApplicationType.Designer.cs">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Controls\ctrlLocalDrivingLicenseApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrlLocalDrivingLicenseApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\Local Driving License\frmLocalDrivingLicsenseApplicationDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     <EmbeddedResource Include="Applications\Applications Types\frmUpdateApplicationType.resx">
       <DependentUpon>frmUpdateApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Controls\ctrlLocalDrivingLicenseApplicationInfo.resx">
+      <DependentUpon>ctrlLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmLocalDrivingLicsenseApplicationDetails.resx">
       <DependentUpon>frmLocalDrivingLicsenseApplicationDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,7 +271,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\Controls\" />
     <Folder Include="Applications\International License\" />
     <Folder Include="Applications\Release Detained License\" />
     <Folder Include="Applications\Renew Driving License\" />

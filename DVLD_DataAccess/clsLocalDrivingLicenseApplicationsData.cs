@@ -6,6 +6,39 @@ namespace DVLD_DataAccess
 {
     public class clsLocalDrivingLicenseApplicationsData
     {
+        public static bool GetLocalDrivingLicenseApplicationInfoByID(
+            int LocalDrivingLicenseApplicationID, DataTable dt)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(@"
+                SELECT TOP 1
+                    LD.LocalDrivingLicenseApplicationID,
+                    A.ApplicationID,
+                    LC.ClassName,
+                    A.ApplicationDate,
+                    A.ApplicationStatus,
+                    A.LastStatusDate,
+                    A.PaidFees,
+                    A.CreatedByUserID,
+                    A.ApplicantPersonID,
+                    (P.FirstName + ' ' + P.SecondName + ' ' + P.ThirdName + ' ' + P.LastName) AS FullName
+                FROM LocalDrivingLicenseApplications LD
+                INNER JOIN Applications A ON LD.ApplicationID = A.ApplicationID
+                INNER JOIN People P ON A.ApplicantPersonID = P.PersonID
+                INNER JOIN LicenseClasses LC ON LD.LicenseClassID = LC.LicenseClassID
+                WHERE LD.LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID", connection))
+            {
+                command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
+                connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    dt.Load(reader);
+                }
+            }
+
+            return dt.Rows.Count > 0;
+        }
+
         // GET BY ID
         public static bool GetLocalDrivingLicenseApplicationByID(
             int LocalDrivingLicenseApplicationID,

@@ -69,20 +69,15 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgvLocalDrivingLicsenseApplictions.CurrentRow == null)
-            {
-                MessageBox.Show("Please select an application first.");
-                return;
-            }
-
-            int applicationID = GetSelectedApplicationID();
-            if (applicationID == -1)
-                return;
-
-            // Details form would need to be created
+            ShowSelectedApplicationDetails();
         }
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowSelectedApplicationDetails();
+        }
+
+        private void ShowSelectedApplicationDetails()
         {
             if (dgvLocalDrivingLicsenseApplictions.CurrentRow == null)
             {
@@ -94,21 +89,17 @@ namespace DVLD.Applications.Local_Driving_License
             if (applicationID == -1)
                 return;
 
-            clsLocalDrivingLicenseApplications application = clsLocalDrivingLicenseApplications.Find(applicationID);
-            if (application == null)
+            if (clsLocalDrivingLicenseApplications.Find(applicationID) == null)
             {
                 MessageBox.Show("Application not found.");
                 return;
             }
 
-            string details = $"Local Driving License Application Details:\n\n" +
-                           $"Application ID: {application.LocalDrivingLicenseApplicationID}\n" +
-                           $"Related Application ID: {application.ApplicationID}\n" +
-                           $"License Class ID: {application.LicenseClassID}\n\n" +
-                           $"Note: For full details including applicant information, application dates, and status, " +
-                           $"a dedicated application details form would need to be implemented.";
-
-            MessageBox.Show(details, "Application Details", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (frmLocalDrivingLicsenseApplicationDetails details =
+                new frmLocalDrivingLicsenseApplicationDetails(applicationID))
+            {
+                details.ShowDialog(this);
+            }
         }
 
         private void addNewApplicationToolStripMenuItem_Click(object sender, EventArgs e)

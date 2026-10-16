@@ -65,6 +65,14 @@ namespace DVLD_Business
             return null;
         }
 
+        public static DataTable GetLocalDrivingLicenseApplicationInfoByID(int LocalDrivingLicenseApplicationID)
+        {
+            DataTable dt = new DataTable();
+            clsLocalDrivingLicenseApplicationsData.GetLocalDrivingLicenseApplicationInfoByID(
+                LocalDrivingLicenseApplicationID, dt);
+            return dt;
+        }
+
         // ADD NEW
         private bool _AddNewLocalDrivingLicenseApplication()
         {

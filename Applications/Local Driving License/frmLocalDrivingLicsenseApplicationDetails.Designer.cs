@@ -29,25 +29,35 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.ctrlLocalDrivingLicenseApplicationInfo1 = new DVLD.Applications.Local_Driving_License.ctrlLocalDrivingLicenseApplicationInfo();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
-            this.label1.Location = new System.Drawing.Point(218, 55);
+            this.label1.Location = new System.Drawing.Point(286, -1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(418, 54);
             this.label1.TabIndex = 0;
             this.label1.Text = "Application Details ";
             // 
+            // ctrlLocalDrivingLicenseApplicationInfo1
+            // 
+            this.ctrlLocalDrivingLicenseApplicationInfo1.Location = new System.Drawing.Point(36, 56);
+            this.ctrlLocalDrivingLicenseApplicationInfo1.Name = "ctrlLocalDrivingLicenseApplicationInfo1";
+            this.ctrlLocalDrivingLicenseApplicationInfo1.Size = new System.Drawing.Size(929, 393);
+            this.ctrlLocalDrivingLicenseApplicationInfo1.TabIndex = 1;
+            // 
             // frmLocalDrivingLicsenseApplicationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 637);
+            this.ClientSize = new System.Drawing.Size(1029, 755);
+            this.Controls.Add(this.ctrlLocalDrivingLicenseApplicationInfo1);
             this.Controls.Add(this.label1);
             this.Name = "frmLocalDrivingLicsenseApplicationDetails";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLocalDrivingLicsenseApplicationDetails";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -57,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private ctrlLocalDrivingLicenseApplicationInfo ctrlLocalDrivingLicenseApplicationInfo1;
     }
 }
