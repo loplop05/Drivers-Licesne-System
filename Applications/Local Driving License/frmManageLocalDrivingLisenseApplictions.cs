@@ -117,5 +117,33 @@ namespace DVLD.Applications.Local_Driving_License
                 contextMenuStrip1.Show(Cursor.Position);
             }
         }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvLocalDrivingLicsenseApplictions.CurrentRow == null)
+            {
+                MessageBox.Show("Please select an application first.");
+                return;
+            }
+
+            int applicationID = GetSelectedApplicationID();
+            if (applicationID == -1 || clsLocalDrivingLicenseApplications.Find(applicationID) == null)
+            {
+                MessageBox.Show("Application not found.");
+                return;
+            }
+
+            using (frmSchedualeVisionTestAppointment scheduleForm =
+                new frmSchedualeVisionTestAppointment(applicationID))
+            {
+                scheduleForm.ShowDialog(this);
+            }
+        }
+
+
+
+
+
+
     }
 }

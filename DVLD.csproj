@@ -85,6 +85,18 @@
     <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Local Driving License\frmSchedualeVisionTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmSchedualeVisionTestAppointment.Designer.cs">
+      <DependentUpon>frmSchedualeVisionTestAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmVisionTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmVisionTestAppointment.Designer.cs">
+      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +207,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.resx">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmSchedualeVisionTestAppointment.resx">
+      <DependentUpon>frmSchedualeVisionTestAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmVisionTestAppointment.resx">
+      <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -411,6 +429,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Icons\Icons\Street Test 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Icons\Icons\Vision 512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
