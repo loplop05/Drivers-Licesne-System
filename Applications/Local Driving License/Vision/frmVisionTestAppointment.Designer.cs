@@ -86,13 +86,13 @@
             this.editToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.cmsAppointments.Name = "cmsAppointments";
-            this.cmsAppointments.Size = new System.Drawing.Size(146, 56);
+            this.cmsAppointments.Size = new System.Drawing.Size(215, 84);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit_322;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
@@ -100,7 +100,7 @@
             // 
             this.takeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Test_32;
             this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
-            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.takeTestToolStripMenuItem.Text = "Take Test ";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 

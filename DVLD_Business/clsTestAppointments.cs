@@ -36,6 +36,24 @@ namespace DVLD_Business
             return clsTestAppointmentsData.GetAppointments(VisionTestTypeID, localApplicationID);
         }
 
+        public static DataTable GetWrittenAppointments(int localApplicationID)
+        {
+            return clsTestAppointmentsData.GetAppointments(WrittenTestTypeID, localApplicationID);
+        }
+
+        public static bool HasActiveWrittenAppointment(int localApplicationID)
+        {
+            return clsTestAppointmentsData.DoesActiveAppointmentExist(WrittenTestTypeID, localApplicationID);
+        }
+
+        public static int AddWrittenAppointment(int localApplicationID, DateTime appointmentDate, decimal paidFees, int createdByUserID)
+        {
+            if (localApplicationID <= 0 || createdByUserID <= 0 || appointmentDate.Date < DateTime.Today ||
+                HasActiveWrittenAppointment(localApplicationID) || HasPassedWrittenTest(localApplicationID))
+                return -1;
+            return clsTestAppointmentsData.AddTestAppointment(WrittenTestTypeID, localApplicationID, appointmentDate, paidFees, createdByUserID);
+        }
+
         public static bool UpdateVisionAppointmentDate(int appointmentID, DateTime appointmentDate)
         {
             if (appointmentID <= 0 || appointmentDate.Date < DateTime.Today)
@@ -45,6 +63,12 @@ namespace DVLD_Business
         }
 
         public static bool CompleteVisionAppointment(int appointmentID, bool result, string notes, int userID)
+        {
+            return appointmentID > 0 && userID > 0 &&
+                clsTestAppointmentsData.CompleteAppointment(appointmentID, result, notes, userID);
+        }
+
+        public static bool CompleteWrittenAppointment(int appointmentID, bool result, string notes, int userID)
         {
             return appointmentID > 0 && userID > 0 &&
                 clsTestAppointmentsData.CompleteAppointment(appointmentID, result, notes, userID);

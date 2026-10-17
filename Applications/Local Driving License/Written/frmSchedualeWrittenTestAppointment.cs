@@ -51,9 +51,9 @@ namespace DVLD.Applications.Local_Driving_License
             DataRow row = info.Rows[0];
             label5.Text = _localDrivingLicenseApplicationID.ToString();
             lblName.Text = row["FullName"].ToString();
-            DataTable appointments = clsTestAppointments.GetVisionAppointments(
+            DataTable appointments = clsTestAppointments.GetWrittenAppointments(
                 _localDrivingLicenseApplicationID);
-            bool hasActiveAppointment = clsTestAppointments.HasActiveVisionAppointment(
+            bool hasActiveAppointment = clsTestAppointments.HasActiveWrittenAppointment(
                 _localDrivingLicenseApplicationID);
             bool isRetake = appointments.Rows.Count > 0 && !hasActiveAppointment;
 
@@ -67,12 +67,12 @@ namespace DVLD.Applications.Local_Driving_License
 
             if (_editMode)
             {
-                DataTable selectedAppointments = clsTestAppointments.GetVisionAppointments(
+                DataTable selectedAppointments = clsTestAppointments.GetWrittenAppointments(
                     _localDrivingLicenseApplicationID);
                 DataRow[] selected = selectedAppointments.Select(
                     "TestAppointmentID = " + _appointmentID);
                 if (selected.Length == 1 && !Convert.ToBoolean(selected[0]["IsLocked"]))
-                    dateTimePicker1.Value = Convert.ToDateTime(selected[0]["AppointmentDate"]);
+                    dateTimePicker1.Value = Convert.ToDateTime(selected[0]["AppointmentDate"]).Date;
 
                 label1.Text = "Edit Writen Test Appointment";
                 btnSave.Text = "Update";
@@ -91,7 +91,7 @@ namespace DVLD.Applications.Local_Driving_License
 
             int appointmentID = _editMode
                 ? (clsTestAppointments.UpdateVisionAppointmentDate(_appointmentID, dateTimePicker1.Value.Date) ? _appointmentID : -1)
-                : clsTestAppointments.AddVisionAppointment(
+                : clsTestAppointments.AddWrittenAppointment(
                     _localDrivingLicenseApplicationID, dateTimePicker1.Value.Date,
                     Convert.ToDecimal(label8.Text), _currentUserID);
 
@@ -115,9 +115,7 @@ namespace DVLD.Applications.Local_Driving_License
 
 
 
-
-
-
+       
 
 
 

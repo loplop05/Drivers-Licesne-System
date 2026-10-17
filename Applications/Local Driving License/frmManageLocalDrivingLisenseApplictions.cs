@@ -167,7 +167,7 @@ namespace DVLD.Applications.Local_Driving_License
             bool writtenPassed = visionPassed && clsTestAppointments.HasPassedWrittenTest(applicationID);
 
             scheduleVisionTestToolStripMenuItem.Enabled = active && applicationID > 0 && !visionPassed;
-            scheduleVisionTestToolStripMenuItem1.Enabled = visionPassed;
+            scheduleVisionTestToolStripMenuItem1.Enabled = visionPassed && !writtenPassed;
             scheduleVisionTestToolStripMenuItem2.Enabled = writtenPassed;
 
             

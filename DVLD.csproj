@@ -85,34 +85,40 @@
     <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmSchedualeVisionTestAppointment.cs">
+    <Compile Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmSchedualeVisionTestAppointment.Designer.cs">
+    <Compile Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.Designer.cs">
       <DependentUpon>frmSchedualeVisionTestAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmSchedualeWrittenTestAppointment.cs">
+    <Compile Include="Applications\Local Driving License\Written\frmSchedualeWrittenTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmSchedualeWrittenTestAppointment.Designer.cs">
+    <Compile Include="Applications\Local Driving License\Written\frmSchedualeWrittenTestAppointment.Designer.cs">
       <DependentUpon>frmSchedualeWrittenTestAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmTakeVisionTest.cs">
+    <Compile Include="Applications\Local Driving License\Vision\frmTakeVisionTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmTakeVisionTest.Designer.cs">
+    <Compile Include="Applications\Local Driving License\Vision\frmTakeVisionTest.Designer.cs">
       <DependentUpon>frmTakeVisionTest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmVisionTestAppointment.cs">
+    <Compile Include="Applications\Local Driving License\Vision\frmVisionTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmVisionTestAppointment.Designer.cs">
+    <Compile Include="Applications\Local Driving License\Vision\frmVisionTestAppointment.Designer.cs">
       <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmWrtittenTestAppointment.cs">
+    <Compile Include="Applications\Local Driving License\Written\frmTakeWrittenTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmWrtittenTestAppointment.Designer.cs">
+    <Compile Include="Applications\Local Driving License\Written\frmTakeWrittenTest.Designer.cs">
+      <DependentUpon>frmTakeWrittenTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Written\frmWrtittenTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Written\frmWrtittenTestAppointment.Designer.cs">
       <DependentUpon>frmWrtittenTestAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -226,19 +232,22 @@
     <EmbeddedResource Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.resx">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmSchedualeVisionTestAppointment.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.resx">
       <DependentUpon>frmSchedualeVisionTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmSchedualeWrittenTestAppointment.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Written\frmSchedualeWrittenTestAppointment.resx">
       <DependentUpon>frmSchedualeWrittenTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmTakeVisionTest.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Vision\frmTakeVisionTest.resx">
       <DependentUpon>frmTakeVisionTest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmVisionTestAppointment.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Vision\frmVisionTestAppointment.resx">
       <DependentUpon>frmVisionTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmWrtittenTestAppointment.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Written\frmTakeWrittenTest.resx">
+      <DependentUpon>frmTakeWrittenTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\Written\frmWrtittenTestAppointment.resx">
       <DependentUpon>frmWrtittenTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">

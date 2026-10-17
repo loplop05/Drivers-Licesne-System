@@ -23,6 +23,11 @@ namespace DVLD.Applications.Local_Driving_License
                 lblName.Text = info.Rows[0]["FullName"].ToString();
             }
 
+            DataTable appointments = clsTestAppointments.GetVisionAppointments(localDrivingLicenseApplicationID);
+            DataRow[] selected = appointments.Select("TestAppointmentID = " + appointmentID);
+            if (selected.Length == 1)
+                dateTimePicker1.Value = Convert.ToDateTime(selected[0]["AppointmentDate"]).Date;
+
             Button save = new Button { Text = "Save", Width = 100, Height = 35, Left = 470, Top = 605 };
             save.Click += btnSave_Click_1;
             Controls.Add(save);

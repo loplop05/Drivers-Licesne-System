@@ -70,7 +70,7 @@ namespace DVLD.Applications.Local_Driving_License
                 DataRow[] selected = selectedAppointments.Select(
                     "TestAppointmentID = " + _appointmentID);
                 if (selected.Length == 1 && !Convert.ToBoolean(selected[0]["IsLocked"]))
-                    dateTimePicker1.Value = Convert.ToDateTime(selected[0]["AppointmentDate"]);
+                    dateTimePicker1.Value = Convert.ToDateTime(selected[0]["AppointmentDate"]).Date;
 
                 label1.Text = "Edit Vision Test Appointment";
                 btnSave.Text = "Update";

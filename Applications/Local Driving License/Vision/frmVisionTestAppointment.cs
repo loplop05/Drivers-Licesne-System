@@ -31,6 +31,8 @@ namespace DVLD.Applications.Local_Driving_License
             dgvVisionTestAppointments.DataSource = clsTestAppointments.GetVisionAppointments(
                 _localDrivingLicenseApplicationID);
             dgvVisionTestAppointments.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            if (dgvVisionTestAppointments.Columns.Contains("AppointmentDate"))
+                dgvVisionTestAppointments.Columns["AppointmentDate"].DefaultCellStyle.Format = "d";
         }
 
         private void btnAddVisionTestAppointment_Click(object sender, EventArgs e)
