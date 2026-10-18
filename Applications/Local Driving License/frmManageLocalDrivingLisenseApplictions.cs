@@ -165,10 +165,14 @@ namespace DVLD.Applications.Local_Driving_License
             bool active = status == "New";
             bool visionPassed = active && applicationID > 0 && clsTestAppointments.HasPassedVisionTest(applicationID);
             bool writtenPassed = visionPassed && clsTestAppointments.HasPassedWrittenTest(applicationID);
+            bool streetPassed = writtenPassed && clsTestAppointments.HasPassedStreetTest(applicationID);
+            bool hasLicense = applicationID > 0 && clsLicenses.GetLicenseIDByLocalApplicationID(applicationID) > 0;
 
             scheduleVisionTestToolStripMenuItem.Enabled = active && applicationID > 0 && !visionPassed;
             scheduleVisionTestToolStripMenuItem1.Enabled = visionPassed && !writtenPassed;
-            scheduleVisionTestToolStripMenuItem2.Enabled = writtenPassed;
+            scheduleVisionTestToolStripMenuItem2.Enabled = writtenPassed && !streetPassed;
+            issueDrivingLicenseToolStripMenuItem.Enabled = active && streetPassed;
+            showLicenseToolStripMenuItem.Enabled = hasLicense;
 
             
             
@@ -190,6 +194,44 @@ namespace DVLD.Applications.Local_Driving_License
         {
             if (!scheduleVisionTestToolStripMenuItem2.Enabled)
                 return;
+
+            using (frmStreetTestAppointment frm =
+                new frmStreetTestAppointment(GetSelectedApplicationID(), _currentUser.UserID))
+            {
+                frm.ShowDialog(this);
+            }
+
+
+        }
+
+        private void issueDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int applicationID = GetSelectedApplicationID();
+            if (applicationID <= 0 || !clsLicenses.CanIssueFirstLicense(applicationID))
+            {
+                MessageBox.Show("The applicant must pass all three tests before the license can be issued.", "Cannot Issue License", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            using (frmIssueDrivingLicense issue = new frmIssueDrivingLicense(applicationID, _currentUser.UserID))
+            {
+                if (issue.ShowDialog(this) == DialogResult.OK)
+                {
+                    _RefreshLocalDrivingLicenseApplicationsList();
+                    using (frmLicenseInfo info = new frmLicenseInfo(issue.IssuedLicenseID)) info.ShowDialog(this);
+                }
+            }
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int applicationID = GetSelectedApplicationID();
+            int licenseID = clsLicenses.GetLicenseIDByLocalApplicationID(applicationID);
+            if (licenseID <= 0)
+            {
+                MessageBox.Show("This application does not have an issued license yet.", "License Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            using (frmLicenseInfo info = new frmLicenseInfo(licenseID)) info.ShowDialog(this);
         }
 
 

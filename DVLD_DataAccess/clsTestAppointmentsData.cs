@@ -63,6 +63,17 @@ namespace DVLD_DataAccess
             return table;
         }
 
+        public static int GetPassedTestCount(int localApplicationID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT COUNT(DISTINCT TA.TestTypeID) FROM TestAppointments TA INNER JOIN Tests T ON T.TestAppointmentID = TA.TestAppointmentID WHERE TA.LocalDrivingLicenseApplicationID = @LocalApplicationID AND T.TestResult = 1", connection))
+            {
+                command.Parameters.AddWithValue("@LocalApplicationID", localApplicationID);
+                connection.Open();
+                return Convert.ToInt32(command.ExecuteScalar());
+            }
+        }
+
         public static bool UpdateAppointmentDate(int appointmentID, DateTime appointmentDate)
         {
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))

@@ -85,6 +85,24 @@
     <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Local Driving License\frmStreetTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmScheduleStreetTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmTakeStreetTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmIssueDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\frmStreetTestAppointment.Designer.cs">
+      <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +249,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.resx">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Local Driving License\frmStreetTestAppointment.resx">
+      <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.resx">
       <DependentUpon>frmSchedualeVisionTestAppointment.cs</DependentUpon>

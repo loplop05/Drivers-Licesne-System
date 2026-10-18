@@ -114,7 +114,7 @@
             this.showLicenseToolStripMenuItem,
             this.showPersonLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(342, 288);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(342, 260);
             // 
             // showApplicationDetailsToolStripMenuItem
             // 
@@ -186,7 +186,8 @@
             this.issueDrivingLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.License_View_32;
             this.issueDrivingLicenseToolStripMenuItem.Name = "issueDrivingLicenseToolStripMenuItem";
             this.issueDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(341, 32);
-            this.issueDrivingLicenseToolStripMenuItem.Text = "Issue Driving License";
+            this.issueDrivingLicenseToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            this.issueDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.issueDrivingLicenseToolStripMenuItem_Click);
             // 
             // showLicenseToolStripMenuItem
             // 
@@ -194,6 +195,7 @@
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(341, 32);
             this.showLicenseToolStripMenuItem.Text = "Show  License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // showPersonLicenseHistoryToolStripMenuItem
             // 
