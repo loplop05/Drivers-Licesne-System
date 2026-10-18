@@ -383,5 +383,31 @@ namespace DVLD_DataAccess
 
             return hasActiveApplication;
         }
+
+        public static bool DoesPersonHaveIssuedLicenseForClass(int personID, int licenseClassID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(@"SELECT COUNT(1) FROM Licenses L INNER JOIN Drivers D ON D.DriverID = L.DriverID WHERE D.PersonID = @PersonID AND L.LicenseClass = @LicenseClassID AND L.IsActive = 1", connection))
+            {
+                command.Parameters.AddWithValue("@PersonID", personID);
+                command.Parameters.AddWithValue("@LicenseClassID", licenseClassID);
+                connection.Open();
+                return Convert.ToInt32(command.ExecuteScalar()) > 0;
+            }
+        }
+
+        public static bool DeleteApplication(int localApplicationID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(@"SET XACT_ABORT ON; BEGIN TRANSACTION; DECLARE @ApplicationID int; SELECT @ApplicationID=ApplicationID FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID=@LocalID; IF @ApplicationID IS NULL BEGIN ROLLBACK; SELECT 0; RETURN; END; DELETE T FROM Tests T INNER JOIN TestAppointments TA ON TA.TestAppointmentID=T.TestAppointmentID WHERE TA.LocalDrivingLicenseApplicationID=@LocalID; DELETE FROM TestAppointments WHERE LocalDrivingLicenseApplicationID=@LocalID; DELETE FROM LocalDrivingLicenseApplications WHERE LocalDrivingLicenseApplicationID=@LocalID; DELETE FROM Applications WHERE ApplicationID=@ApplicationID; COMMIT; SELECT 1;", connection))
+            { command.Parameters.AddWithValue("@LocalID", localApplicationID); connection.Open(); return Convert.ToInt32(command.ExecuteScalar()) == 1; }
+        }
+
+        public static int GetPersonIDByLocalApplicationID(int localApplicationID)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT A.ApplicantPersonID FROM LocalDrivingLicenseApplications LD INNER JOIN Applications A ON A.ApplicationID=LD.ApplicationID WHERE LD.LocalDrivingLicenseApplicationID=@ID", connection))
+            { command.Parameters.AddWithValue("@ID", localApplicationID); connection.Open(); object result = command.ExecuteScalar(); return result == null || result == DBNull.Value ? -1 : Convert.ToInt32(result); }
+        }
     }
 }

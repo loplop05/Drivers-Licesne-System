@@ -5,6 +5,13 @@ namespace DVLD_DataAccess
 {
     public class clsApplicationsData
     {
+        public static bool UpdateApplicationStatus(int applicationID, byte status)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand("UPDATE Applications SET ApplicationStatus = @Status, LastStatusDate = GETDATE() WHERE ApplicationID = @ApplicationID", connection))
+            { command.Parameters.AddWithValue("@ApplicationID", applicationID); command.Parameters.AddWithValue("@Status", status); connection.Open(); return command.ExecuteNonQuery() > 0; }
+        }
+
         public static int AddNewApplication(
             int ApplicantPersonID,
             DateTime ApplicationDate,

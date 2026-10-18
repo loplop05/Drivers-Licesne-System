@@ -147,5 +147,12 @@ namespace DVLD_Business
         {
             return clsLocalDrivingLicenseApplicationsData.DoesPersonHaveActiveApplicationForLicenseClass(PersonID, LicenseClassID);
         }
+
+        public static bool DoesPersonHaveIssuedLicenseForClass(int personID, int licenseClassID)
+        {
+            return clsLocalDrivingLicenseApplicationsData.DoesPersonHaveIssuedLicenseForClass(personID, licenseClassID);
+        }
+        public static bool DeleteApplication(int localApplicationID) => clsLocalDrivingLicenseApplicationsData.DeleteApplication(localApplicationID);
+        public static int GetPersonIDByLocalApplicationID(int localApplicationID) => clsLocalDrivingLicenseApplicationsData.GetPersonIDByLocalApplicationID(localApplicationID);
     }
 }

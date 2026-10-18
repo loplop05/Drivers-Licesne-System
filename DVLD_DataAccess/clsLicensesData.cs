@@ -6,6 +6,14 @@ namespace DVLD_DataAccess
 {
     public static class clsLicensesData
     {
+        public static DataTable GetLicenseHistory(int personID)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT L.LicenseID AS [Lic.ID], L.ApplicationID AS [App.ID], LC.ClassName AS [Class Name], L.IssueDate AS [Issue Date], L.ExpirationDate AS [Expiration Date], L.IsActive AS [Is Active] FROM Licenses L INNER JOIN Drivers D ON D.DriverID=L.DriverID INNER JOIN LicenseClasses LC ON LC.LicenseClassID=L.LicenseClass WHERE D.PersonID=@PersonID ORDER BY L.IssueDate DESC", connection))
+            { command.Parameters.AddWithValue("@PersonID", personID); connection.Open(); using (SqlDataReader reader = command.ExecuteReader()) table.Load(reader); }
+            return table;
+        }
         public static int GetLicenseIDByLocalApplicationID(int localApplicationID)
         {
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
@@ -44,7 +52,7 @@ SET @LicenseID=CONVERT(int,SCOPE_IDENTITY()); UPDATE Applications SET Applicatio
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
-            using (SqlCommand command = new SqlCommand(@"SELECT TOP 1 L.LicenseID,L.DriverID,L.LicenseClass,LC.ClassName,P.NationalNo,P.FirstName+' '+P.SecondName+' '+P.ThirdName+' '+P.LastName AS FullName,P.DateOfBirth,P.Gendor,P.ImagePath,L.IssueDate,L.ExpirationDate,L.IsActive,L.IssueReason,'No Notes' AS Notes FROM Licenses L INNER JOIN Drivers D ON D.DriverID=L.DriverID INNER JOIN People P ON P.PersonID=D.PersonID INNER JOIN LicenseClasses LC ON LC.LicenseClassID=L.LicenseClass WHERE L.LicenseID=@ID", connection))
+            using (SqlCommand command = new SqlCommand(@"SELECT TOP 1 L.LicenseID,L.DriverID,L.LicenseClass,LC.ClassName,P.NationalNo,P.FirstName+' '+P.SecondName+' '+P.ThirdName+' '+P.LastName AS FullName,P.DateOfBirth,P.Gendor,P.ImagePath,L.IssueDate,L.ExpirationDate,L.IsActive,L.IssueReason,'No Notes' AS Notes,CASE WHEN EXISTS (SELECT 1 FROM DetainedLicenses DL WHERE DL.LicenseID=L.LicenseID AND DL.IsReleased=0) THEN 1 ELSE 0 END AS IsDetained FROM Licenses L INNER JOIN Drivers D ON D.DriverID=L.DriverID INNER JOIN People P ON P.PersonID=D.PersonID INNER JOIN LicenseClasses LC ON LC.LicenseClassID=L.LicenseClass WHERE L.LicenseID=@ID", connection))
             { command.Parameters.AddWithValue("@ID", licenseID); connection.Open(); using (SqlDataReader reader = command.ExecuteReader()) table.Load(reader); }
             return table;
         }

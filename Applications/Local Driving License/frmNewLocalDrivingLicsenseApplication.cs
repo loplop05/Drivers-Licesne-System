@@ -22,6 +22,7 @@ namespace DVLD.Applications.Local_Driving_License
         private int _LocalDrivingLicenseApplicationID = -1;
         private decimal _ApplicationFees = 0;
         private clsUsers _CurrentUser = null;
+        private bool _EditMode = false;
 
 
 
@@ -36,6 +37,26 @@ namespace DVLD.Applications.Local_Driving_License
             btnSave.Click += btnSave_Click;
             btnClose.Click += btnClose_Click;
 
+        }
+
+        public frmNewLocalDrivingLicsenseApplication(int localDrivingLicenseApplicationID, clsUsers currentUser)
+            : this(currentUser)
+        {
+            _EditMode = true;
+            _LocalDrivingLicenseApplicationID = localDrivingLicenseApplicationID;
+            clsLocalDrivingLicenseApplications application = clsLocalDrivingLicenseApplications.Find(localDrivingLicenseApplicationID);
+            DataTable info = clsLocalDrivingLicenseApplications.GetLocalDrivingLicenseApplicationInfoByID(localDrivingLicenseApplicationID);
+            if (application == null || info.Rows.Count == 0) { MessageBox.Show("Application not found."); Close(); return; }
+            _ApplicationID = application.ApplicationID;
+            _PersonID = Convert.ToInt32(info.Rows[0]["ApplicantPersonID"]);
+            _PersonFound = true;
+            ctrlPersonDetails1.LoadPerson(_PersonID);
+            cbLicsenseClass.SelectedValue = application.LicenseClassID;
+            lblDLapplictionID.Text = localDrivingLicenseApplicationID.ToString();
+            lblApplictionDate.Text = Convert.ToDateTime(info.Rows[0]["ApplicationDate"]).ToShortDateString();
+            lblCreatedByUser.Text = info.Rows[0]["CreatedBy"].ToString();
+            btnSave.Text = "Update";
+            Text = "Edit Local Driving License Application";
         }
 
         private void SetupFilterComboBox()
@@ -138,6 +159,16 @@ namespace DVLD.Applications.Local_Driving_License
 
             // Check if person already has an active application for this license class
             int licenseClassID = Convert.ToInt32(cbLicsenseClass.SelectedValue);
+            if (clsLocalDrivingLicenseApplications.DoesPersonHaveIssuedLicenseForClass(_PersonID, licenseClassID))
+            {
+                MessageBox.Show(
+                    "This person already has an issued license for this license class.",
+                    "License Already Exists",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return false;
+            }
+
             if (clsLocalDrivingLicenseApplications.DoesPersonHaveActiveApplicationForLicenseClass(_PersonID, licenseClassID))
             {
                 MessageBox.Show(
@@ -155,6 +186,20 @@ namespace DVLD.Applications.Local_Driving_License
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (_EditMode)
+            {
+                if (cbLicsenseClass.SelectedValue == null) return;
+                if (clsLocalDrivingLicenseApplications.DoesPersonHaveIssuedLicenseForClass(_PersonID, Convert.ToInt32(cbLicsenseClass.SelectedValue)))
+                {
+                    MessageBox.Show("This person already has an issued license for this license class.", "License Already Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                clsLocalDrivingLicenseApplications application = clsLocalDrivingLicenseApplications.Find(_LocalDrivingLicenseApplicationID);
+                application.LicenseClassID = Convert.ToInt32(cbLicsenseClass.SelectedValue);
+                if (!application.Save()) { MessageBox.Show("Application was not updated.", "Update Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+                MessageBox.Show("Application updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK; Close(); return;
+            }
             if (_LocalDrivingLicenseApplicationID != -1)
             {
                 MessageBox.Show("This application is already saved.");

@@ -5,6 +5,7 @@ namespace DVLD_Business
 {
     public class clsApplications
     {
+        public static bool UpdateApplicationStatus(int applicationID, byte status) => clsApplicationsData.UpdateApplicationStatus(applicationID, status);
         public static int AddNewApplication(
             int ApplicantPersonID,
             DateTime ApplicationDate,

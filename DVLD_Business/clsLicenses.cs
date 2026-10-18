@@ -5,6 +5,7 @@ namespace DVLD_Business
 {
     public static class clsLicenses
     {
+        public static DataTable GetLicenseHistory(int personID) => clsLicensesData.GetLicenseHistory(personID);
         public static int GetLicenseIDByLocalApplicationID(int id) => clsLicensesData.GetLicenseIDByLocalApplicationID(id);
         public static bool CanIssueFirstLicense(int id) => clsLicensesData.CanIssueFirstLicense(id);
         public static int IssueFirstLicense(int id, int userID, string notes) => clsLicensesData.IssueFirstLicense(id, userID, notes);

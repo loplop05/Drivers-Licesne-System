@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Drivers\frmManageDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -85,22 +88,25 @@
     <Compile Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.Designer.cs">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmStreetTestAppointment.cs">
+    <Compile Include="Applications\Local Driving License\Street\frmStreetTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmScheduleStreetTestAppointment.cs">
+    <Compile Include="Applications\Local Driving License\Street\frmScheduleStreetTestAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmTakeStreetTest.cs">
+    <Compile Include="Applications\Local Driving License\Street\frmTakeStreetTest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmIssueDrivingLicense.cs">
+    <Compile Include="Licenses\Local Licenses\frmIssueDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmLicenseInfo.cs">
+    <Compile Include="Licenses\Local Licenses\frmLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Applications\Local Driving License\frmStreetTestAppointment.Designer.cs">
+    <Compile Include="Licenses\Local Licenses\frmLicenseHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Local Driving License\Street\frmStreetTestAppointment.Designer.cs">
       <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.cs">
@@ -250,7 +256,7 @@
     <EmbeddedResource Include="Applications\Local Driving License\frmNewLocalDrivingLicsenseApplication.resx">
       <DependentUpon>frmNewLocalDrivingLicsenseApplication.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Applications\Local Driving License\frmStreetTestAppointment.resx">
+    <EmbeddedResource Include="Applications\Local Driving License\Street\frmStreetTestAppointment.resx">
       <DependentUpon>frmStreetTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\Vision\frmSchedualeVisionTestAppointment.resx">
@@ -273,6 +279,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Licenses\Local Licenses\frmLicenseHistory.resx">
+      <DependentUpon>frmLicenseHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -350,11 +359,9 @@
     <Folder Include="Applications\Release Detained License\" />
     <Folder Include="Applications\Renew Driving License\" />
     <Folder Include="Applications\ReplaceLostOrDamageLicesne\" />
-    <Folder Include="Drivers\" />
     <Folder Include="Licenses\Controls\" />
     <Folder Include="Licenses\Detain License\" />
     <Folder Include="Licenses\International License\" />
-    <Folder Include="Licenses\Local Licenses\" />
     <Folder Include="Resourcses\" />
     <Folder Include="Tests\Controls\" />
   </ItemGroup>

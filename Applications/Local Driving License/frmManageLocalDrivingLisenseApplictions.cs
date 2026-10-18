@@ -24,7 +24,9 @@ namespace DVLD.Applications.Local_Driving_License
             dgvLocalDrivingLicsenseApplictions.DataSource = dt;
             dgvLocalDrivingLicsenseApplictions.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvLocalDrivingLicsenseApplictions.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvLocalDrivingLicsenseApplictions.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
+            dgvLocalDrivingLicsenseApplictions.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvLocalDrivingLicsenseApplictions.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvLocalDrivingLicsenseApplictions.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
         }
 
         public frmManageLocalDrivingLisenseApplictions(clsUsers currentUser)
@@ -173,6 +175,10 @@ namespace DVLD.Applications.Local_Driving_License
             scheduleVisionTestToolStripMenuItem2.Enabled = writtenPassed && !streetPassed;
             issueDrivingLicenseToolStripMenuItem.Enabled = active && streetPassed;
             showLicenseToolStripMenuItem.Enabled = hasLicense;
+            editApplicationToolStripMenuItem.Enabled = active && applicationID > 0;
+            deleteApplicationToolStripMenuItem.Enabled = active && applicationID > 0;
+            cancelApplicationToolStripMenuItem.Enabled = active && applicationID > 0;
+            showPersonLicenseHistoryToolStripMenuItem.Enabled = applicationID > 0;
 
             
             
@@ -232,6 +238,40 @@ namespace DVLD.Applications.Local_Driving_License
                 return;
             }
             using (frmLicenseInfo info = new frmLicenseInfo(licenseID)) info.ShowDialog(this);
+        }
+
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = GetSelectedApplicationID();
+            if (id <= 0) return;
+            using (frmNewLocalDrivingLicsenseApplication edit = new frmNewLocalDrivingLicsenseApplication(id, _currentUser))
+                if (edit.ShowDialog(this) == DialogResult.OK) _RefreshLocalDrivingLicenseApplicationsList();
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = GetSelectedApplicationID();
+            if (id <= 0) return;
+            if (MessageBox.Show("Are you sure you want to delete this application?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (!clsLocalDrivingLicenseApplications.DeleteApplication(id)) { MessageBox.Show("Application could not be deleted.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            _RefreshLocalDrivingLicenseApplicationsList();
+        }
+
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int id = GetSelectedApplicationID();
+            clsLocalDrivingLicenseApplications application = clsLocalDrivingLicenseApplications.Find(id);
+            if (application == null) return;
+            if (MessageBox.Show("Are you sure you want to cancel this application?", "Confirm Cancel", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (!clsApplications.UpdateApplicationStatus(application.ApplicationID, 2)) { MessageBox.Show("Application could not be cancelled.", "Cancel Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+            _RefreshLocalDrivingLicenseApplicationsList();
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int personID = clsLocalDrivingLicenseApplications.GetPersonIDByLocalApplicationID(GetSelectedApplicationID());
+            if (personID <= 0) return;
+            using (frmLicenseHistory history = new frmLicenseHistory(personID)) history.ShowDialog(this);
         }
 
 
