@@ -52,7 +52,7 @@ SET @LicenseID=CONVERT(int,SCOPE_IDENTITY()); UPDATE Applications SET Applicatio
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
-            using (SqlCommand command = new SqlCommand(@"SELECT TOP 1 L.LicenseID,L.DriverID,L.LicenseClass,LC.ClassName,P.NationalNo,P.FirstName+' '+P.SecondName+' '+P.ThirdName+' '+P.LastName AS FullName,P.DateOfBirth,P.Gendor,P.ImagePath,L.IssueDate,L.ExpirationDate,L.IsActive,L.IssueReason,'No Notes' AS Notes,CASE WHEN EXISTS (SELECT 1 FROM DetainedLicenses DL WHERE DL.LicenseID=L.LicenseID AND DL.IsReleased=0) THEN 1 ELSE 0 END AS IsDetained FROM Licenses L INNER JOIN Drivers D ON D.DriverID=L.DriverID INNER JOIN People P ON P.PersonID=D.PersonID INNER JOIN LicenseClasses LC ON LC.LicenseClassID=L.LicenseClass WHERE L.LicenseID=@ID", connection))
+            using (SqlCommand command = new SqlCommand(@"SELECT TOP 1 L.LicenseID,L.DriverID,P.PersonID,L.LicenseClass,LC.ClassName,P.NationalNo,P.FirstName+' '+P.SecondName+' '+P.ThirdName+' '+P.LastName AS FullName,P.DateOfBirth,P.Gendor,P.ImagePath,L.IssueDate,L.ExpirationDate,L.IsActive,L.IssueReason,'No Notes' AS Notes,CASE WHEN EXISTS (SELECT 1 FROM DetainedLicenses DL WHERE DL.LicenseID=L.LicenseID AND DL.IsReleased=0) THEN 1 ELSE 0 END AS IsDetained FROM Licenses L INNER JOIN Drivers D ON D.DriverID=L.DriverID INNER JOIN People P ON P.PersonID=D.PersonID INNER JOIN LicenseClasses LC ON LC.LicenseClassID=L.LicenseClass WHERE L.LicenseID=@ID", connection))
             { command.Parameters.AddWithValue("@ID", licenseID); connection.Open(); using (SqlDataReader reader = command.ExecuteReader()) table.Load(reader); }
             return table;
         }

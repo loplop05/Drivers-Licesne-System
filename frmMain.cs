@@ -1,4 +1,5 @@
 ﻿using DVLD.Applications.Applications_Types;
+using DVLD.Applications.International_License;
 using DVLD.Applications.Local_Driving_License;
 using DVLD.Drivers;
 using DVLD.People;
@@ -172,11 +173,15 @@ namespace DVLD
             SwitchToForm(new frmManageDrivers());
         }
 
+        private void internationalLicsenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmNewInternationalLicsense(_currentUser));
+        }
 
-
-
-
-
+        private void internationalLicsenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmManageInternationalLicenseApplications(_currentUser));
+        }
 
 
 

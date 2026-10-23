@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using DVLD_Business;
+using DVLD.Applications.Local_Driving_License;
 
 namespace DVLD.Drivers
 {
@@ -17,8 +18,37 @@ namespace DVLD.Drivers
             value.Location = new Point(330, 270); value.Width = 260; value.Visible = false;
             grid.Location = new Point(20, 315); grid.Size = new Size(1110, 390); grid.ReadOnly = true; grid.AllowUserToAddRows = false; grid.AllowUserToDeleteRows = false; grid.BackgroundColor = SystemColors.ButtonFace; grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             records.Text = "# Records: 0"; records.Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold); records.AutoSize = true; records.Location = new Point(25, 725);
+            var contextMenu = new ContextMenuStrip();
+            var showLicenseHistory = new ToolStripMenuItem("Show License History");
+            showLicenseHistory.Click += (s, e) => ShowSelectedLicenseHistory();
+            contextMenu.Items.Add(showLicenseHistory);
+            grid.ContextMenuStrip = contextMenu;
+            grid.CellMouseDown += (s, e) =>
+            {
+                if (e.Button == MouseButtons.Right && e.RowIndex >= 0)
+                {
+                    grid.ClearSelection();
+                    grid.Rows[e.RowIndex].Selected = true;
+                    grid.CurrentCell = grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    contextMenu.Show(Cursor.Position);
+                }
+            };
             var close = new Button { Text = "Close", Location = new Point(1000, 725), Size = new Size(120, 35) }; close.Click += (s, e) => Close(); filter.SelectedIndexChanged += (s, e) => { value.Visible = filter.SelectedIndex > 0; RefreshDrivers(); }; value.TextChanged += (s, e) => RefreshDrivers(); Controls.AddRange(new Control[] { image, title, filterLabel, filter, value, grid, records, close }); RefreshDrivers();
         }
         void RefreshDrivers() { grid.DataSource = clsDrivers.GetDrivers(filter.Text, value.Text.Trim()); records.Text = "# Records: " + grid.Rows.Count; }
+
+        void ShowSelectedLicenseHistory()
+        {
+            if (grid.CurrentRow == null)
+            {
+                return;
+            }
+
+            int personId = Convert.ToInt32(grid.CurrentRow.Cells["Person ID"].Value);
+            using (frmLicenseHistory history = new frmLicenseHistory(personId))
+            {
+                history.ShowDialog(this);
+            }
+        }
     }
 }

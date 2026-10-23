@@ -258,6 +258,7 @@
             this.internationalLicsenseToolStripMenuItem.Name = "internationalLicsenseToolStripMenuItem";
             this.internationalLicsenseToolStripMenuItem.Size = new System.Drawing.Size(284, 32);
             this.internationalLicsenseToolStripMenuItem.Text = "International Licsense";
+            this.internationalLicsenseToolStripMenuItem.Click += new System.EventHandler(this.internationalLicsenseToolStripMenuItem_Click);
             // 
             // renewDrivingLicsenseToolStripMenuItem
             // 
@@ -315,6 +316,7 @@
             this.internationalLicsenseApplicationsToolStripMenuItem.Name = "internationalLicsenseApplicationsToolStripMenuItem";
             this.internationalLicsenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(490, 56);
             this.internationalLicsenseApplicationsToolStripMenuItem.Text = "International Licsense Applications";
+            this.internationalLicsenseApplicationsToolStripMenuItem.Click += new System.EventHandler(this.internationalLicsenseApplicationsToolStripMenuItem_Click);
             // 
             // detainLicensesToolStripMenuItem
             // 

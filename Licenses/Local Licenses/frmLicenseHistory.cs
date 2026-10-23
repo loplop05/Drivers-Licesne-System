@@ -30,7 +30,8 @@ namespace DVLD.Applications.Local_Driving_License
             var internationalTab = new TabPage("International");
             var licenses = new DataGridView { Location = new Point(10, 10), Size = new Size(1035, 270), ReadOnly = true, AllowUserToAddRows = false, AllowUserToDeleteRows = false, AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill, BackgroundColor = SystemColors.ButtonFace, DataSource = clsLicenses.GetLicenseHistory(personID) };
             localTab.Controls.Add(licenses);
-            internationalTab.Controls.Add(new Label { Text = "No international licenses found.", AutoSize = true, Font = new Font("Microsoft Sans Serif", 12), Location = new Point(25, 25) });
+            var internationalLicenses = new DataGridView { Location = new Point(10, 10), Size = new Size(1035, 270), ReadOnly = true, AllowUserToAddRows = false, AllowUserToDeleteRows = false, AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill, BackgroundColor = SystemColors.ButtonFace, DataSource = clsInternationalLicenses.GetLicenseHistory(personID) };
+            internationalTab.Controls.Add(internationalLicenses);
             tabs.TabPages.Add(localTab); tabs.TabPages.Add(internationalTab);
 
             var records = new Label { Text = "# Records: " + licenses.Rows.Count, AutoSize = true, Font = new Font("Microsoft Sans Serif", 11, FontStyle.Bold), Location = new Point(25, 750) };
