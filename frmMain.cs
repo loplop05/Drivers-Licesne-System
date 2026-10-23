@@ -1,7 +1,11 @@
 ﻿using DVLD.Applications.Applications_Types;
 using DVLD.Applications.International_License;
 using DVLD.Applications.Local_Driving_License;
+using DVLD.Applications.ReplaceLostOrDamagedLicense;
+using DVLD.Applications.ReleaseDetainedLicense;
+using DVLD.Applications.Renew_Driving_License;
 using DVLD.Drivers;
+using DVLD.Licenses.DetainLicense;
 using DVLD.People;
 using DVLD.Tests.Test_Types;
 using DVLD.Users;
@@ -31,6 +35,8 @@ namespace DVLD
             _currentUser = currentUser;
 
             InitializeComponent();
+
+            pnlContent.Resize += pnlContent_Resize;
         }
 
 
@@ -42,25 +48,49 @@ namespace DVLD
         // Helper method to switch forms
         private void SwitchToForm(Form newForm)
         {
-            // Close and dispose current form if exists
-            if (_currentForm != null)
+            if (newForm == null)
+            {
+                return;
+            }
+
+            if (_currentForm != null && !_currentForm.IsDisposed)
             {
                 _currentForm.Close();
                 _currentForm.Dispose();
             }
 
-            // Clear panel
             pnlContent.Controls.Clear();
+            pnlContent.AutoScroll = true;
 
-            // Setup new form
             newForm.TopLevel = false;
             newForm.FormBorderStyle = FormBorderStyle.None;
-            newForm.Dock = DockStyle.Fill;
+            newForm.WindowState = FormWindowState.Normal;
+            newForm.StartPosition = FormStartPosition.Manual;
+            newForm.Dock = DockStyle.None;
 
-            // Add to panel
-            pnlContent.Controls.Add(newForm);
             _currentForm = newForm;
+            pnlContent.Controls.Add(newForm);
             newForm.Show();
+            CenterCurrentForm();
+            newForm.BringToFront();
+        }
+
+        private void pnlContent_Resize(object sender, EventArgs e)
+        {
+            CenterCurrentForm();
+        }
+
+        private void CenterCurrentForm()
+        {
+            if (_currentForm == null || _currentForm.IsDisposed)
+            {
+                return;
+            }
+
+            int left = Math.Max(0, (pnlContent.ClientSize.Width - _currentForm.Width) / 2);
+            int top = Math.Max(0, (pnlContent.ClientSize.Height - _currentForm.Height) / 2);
+
+            _currentForm.Location = new Point(left, top);
         }
 
         private void btnPeople_Click(object sender, EventArgs e)
@@ -181,6 +211,46 @@ namespace DVLD
         private void internationalLicsenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SwitchToForm(new frmManageInternationalLicenseApplications(_currentUser));
+        }
+
+        private void renewDrivingLicsenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SwitchToForm(new frmReenewLocalDrivingLicense(_currentUser));
+        }
+
+        private void replaceForLostOrDamagedLicsenseToolStripMenuItem_Click(
+            object sender,
+            EventArgs e)
+        {
+            SwitchToForm(new frmReplaceLostOrDamagedLicense(_currentUser));
+        }
+
+        private void manageDetainedLicsenseToolStripMenuItem_Click(
+            object sender,
+            EventArgs e)
+        {
+            SwitchToForm(new frmManageDetainedLicenses());
+        }
+
+        private void detainLicsenseToolStripMenuItem_Click(
+            object sender,
+            EventArgs e)
+        {
+            SwitchToForm(new frmDetainLicense(_currentUser));
+        }
+
+        private void releaseDetainedLicsenseToolStripMenuItem_Click(
+            object sender,
+            EventArgs e)
+        {
+            SwitchToForm(new frmReleaseDetainedLicense(_currentUser));
+        }
+
+        private void releaseDetainedDrivingLicsenseToolStripMenuItem_Click(
+            object sender,
+            EventArgs e)
+        {
+            SwitchToForm(new frmReleaseDetainedLicense(_currentUser));
         }
 
 

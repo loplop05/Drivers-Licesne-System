@@ -73,12 +73,12 @@ namespace DVLD.Applications.International_License
             picApplicant.Location = new System.Drawing.Point(704, 46);
             picApplicant.Size = new System.Drawing.Size(130, 160);
             picApplicant.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            grpDriverInfo.Controls.Add(picApplicant);
             lblDriverInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             lblDriverInfo.Font = new System.Drawing.Font("Segoe UI", 11F);
             lblDriverInfo.Padding = new System.Windows.Forms.Padding(18);
             lblDriverInfo.Text = "Class:     Class 3 - Ordinary driving license        Is Active?:     Yes\n\nName:     Mahmoud Omar Ali Almajed\n\nLicense ID:     25                              Date Of Birth:     09/Oct/2005\n\nNational No:     N10                          Driver ID:     11\n\nIssue Date:     09/Oct/2023                 Expiration Date:     09/Oct/2033\n\nIssue Reason:     First Time                    Is Detained?:     No";
             grpDriverInfo.Controls.Add(lblDriverInfo);
+            grpDriverInfo.Controls.Add(picApplicant);
 
             grpApplicationInfo.Location = new System.Drawing.Point(30, 470);
             grpApplicationInfo.Size = new System.Drawing.Size(850, 142);

@@ -55,6 +55,9 @@
             this.localDrivingLicsenseApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.internationalLicsenseApplicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.detainLicensesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageDetainedLicsenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.detainLicsenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.releaseDetainedLicsenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageApplicationTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageTestTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlContent = new System.Windows.Forms.Panel();
@@ -68,14 +71,12 @@
             // 
             // pnlTop
             // 
-            this.pnlTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlTop.AutoSize = true;
             this.pnlTop.Controls.Add(this.menuStrip4);
             this.pnlTop.Controls.Add(this.menuStrip3);
             this.pnlTop.Controls.Add(this.menuStrip2);
             this.pnlTop.Controls.Add(this.menuStrip1);
             this.pnlTop.Controls.Add(this.MsApplications);
+            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTop.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlTop.Location = new System.Drawing.Point(0, 0);
             this.pnlTop.Name = "pnlTop";
@@ -241,7 +242,7 @@
             this.newDrivingLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.newDrivingLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.New_Driving_License_32;
             this.newDrivingLicsenseToolStripMenuItem.Name = "newDrivingLicsenseToolStripMenuItem";
-            this.newDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
+            this.newDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
             this.newDrivingLicsenseToolStripMenuItem.Text = "New Driving Licsense ";
             // 
             // localLicsenseToolStripMenuItem
@@ -265,31 +266,34 @@
             this.renewDrivingLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.renewDrivingLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Renew_Driving_License_32;
             this.renewDrivingLicsenseToolStripMenuItem.Name = "renewDrivingLicsenseToolStripMenuItem";
-            this.renewDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
+            this.renewDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
             this.renewDrivingLicsenseToolStripMenuItem.Text = "Renew Driving Licsense";
+            this.renewDrivingLicsenseToolStripMenuItem.Click += new System.EventHandler(this.renewDrivingLicsenseToolStripMenuItem_Click);
             // 
             // replaceForLostOrDamagedLicsenseToolStripMenuItem
             // 
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Damaged_Driving_License_32;
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Name = "replaceForLostOrDamagedLicsenseToolStripMenuItem";
-            this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
+            this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
             this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Text = "Replace for Lost or Damaged Licsense";
+            this.replaceForLostOrDamagedLicsenseToolStripMenuItem.Click += new System.EventHandler(this.replaceForLostOrDamagedLicsenseToolStripMenuItem_Click);
             // 
             // releaseDetainedDrivingLicsenseToolStripMenuItem
             // 
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Release_Detained_License_32;
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Name = "releaseDetainedDrivingLicsenseToolStripMenuItem";
-            this.releaseDetainedDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
+            this.releaseDetainedDrivingLicsenseToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
             this.releaseDetainedDrivingLicsenseToolStripMenuItem.Text = "Release Detained Driving Licsense";
+            this.releaseDetainedDrivingLicsenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedDrivingLicsenseToolStripMenuItem_Click);
             // 
             // retakeTestToolStripMenuItem
             // 
             this.retakeTestToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.retakeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.Retake_Test_32;
             this.retakeTestToolStripMenuItem.Name = "retakeTestToolStripMenuItem";
-            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(422, 32);
+            this.retakeTestToolStripMenuItem.Size = new System.Drawing.Size(452, 56);
             this.retakeTestToolStripMenuItem.Text = "Retake Test";
             // 
             // manageApplicationsToolStripMenuItem
@@ -317,13 +321,41 @@
             this.internationalLicsenseApplicationsToolStripMenuItem.Size = new System.Drawing.Size(490, 56);
             this.internationalLicsenseApplicationsToolStripMenuItem.Text = "International Licsense Applications";
             this.internationalLicsenseApplicationsToolStripMenuItem.Click += new System.EventHandler(this.internationalLicsenseApplicationsToolStripMenuItem_Click);
-            // 
+            //
             // detainLicensesToolStripMenuItem
-            // 
+            //
+            this.detainLicensesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageDetainedLicsenseToolStripMenuItem,
+            this.detainLicsenseToolStripMenuItem,
+            this.releaseDetainedLicsenseToolStripMenuItem});
             this.detainLicensesToolStripMenuItem.Image = global::DVLD.Properties.Resources.Detain_32;
             this.detainLicensesToolStripMenuItem.Name = "detainLicensesToolStripMenuItem";
             this.detainLicensesToolStripMenuItem.Size = new System.Drawing.Size(404, 56);
             this.detainLicensesToolStripMenuItem.Text = "Detain Licenses";
+            //
+            // manageDetainedLicsenseToolStripMenuItem
+            //
+            this.manageDetainedLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Detain_321;
+            this.manageDetainedLicsenseToolStripMenuItem.Name = "manageDetainedLicsenseToolStripMenuItem";
+            this.manageDetainedLicsenseToolStripMenuItem.Size = new System.Drawing.Size(406, 56);
+            this.manageDetainedLicsenseToolStripMenuItem.Text = "Manage Detained Licsense";
+            this.manageDetainedLicsenseToolStripMenuItem.Click += new System.EventHandler(this.manageDetainedLicsenseToolStripMenuItem_Click);
+            //
+            // detainLicsenseToolStripMenuItem
+            //
+            this.detainLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Detain_322;
+            this.detainLicsenseToolStripMenuItem.Name = "detainLicsenseToolStripMenuItem";
+            this.detainLicsenseToolStripMenuItem.Size = new System.Drawing.Size(406, 56);
+            this.detainLicsenseToolStripMenuItem.Text = "Detain Licsense";
+            this.detainLicsenseToolStripMenuItem.Click += new System.EventHandler(this.detainLicsenseToolStripMenuItem_Click);
+            //
+            // releaseDetainedLicsenseToolStripMenuItem
+            //
+            this.releaseDetainedLicsenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.Release_Detained_License_321;
+            this.releaseDetainedLicsenseToolStripMenuItem.Name = "releaseDetainedLicsenseToolStripMenuItem";
+            this.releaseDetainedLicsenseToolStripMenuItem.Size = new System.Drawing.Size(406, 56);
+            this.releaseDetainedLicsenseToolStripMenuItem.Text = "Release Detained Licsense";
+            this.releaseDetainedLicsenseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedLicsenseToolStripMenuItem_Click);
             // 
             // manageApplicationTypesToolStripMenuItem
             // 
@@ -343,9 +375,9 @@
             // 
             // pnlContent
             // 
-            this.pnlContent.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlContent.AutoScroll = true;
             this.pnlContent.BackColor = System.Drawing.Color.Black;
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContent.Location = new System.Drawing.Point(0, 120);
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1609, 801);
@@ -363,6 +395,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVLD - Driver and Vehicle Licensing Department";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlTop.ResumeLayout(false);
             this.pnlTop.PerformLayout();
             this.menuStrip4.ResumeLayout(false);
@@ -376,7 +409,6 @@
             this.MsApplications.ResumeLayout(false);
             this.MsApplications.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -411,5 +443,8 @@
         private System.Windows.Forms.ToolStripMenuItem internationalLicsenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem localDrivingLicsenseApplicationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem internationalLicsenseApplicationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageDetainedLicsenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem detainLicsenseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicsenseToolStripMenuItem;
     }
 }

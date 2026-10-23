@@ -33,6 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Applications\Controls\ctrlLocalDrivingLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\Controls\ctrlLocalDrivingLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\International License\frmInternationalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -50,6 +56,36 @@
     </Compile>
     <Compile Include="Applications\International License\frmNewInternationalLicsense.Designer.cs">
       <DependentUpon>frmNewInternationalLicsense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Renew Driving License\frmReenewLocalDrivingLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Renew Driving License\frmReenewLocalDrivingLicense.Designer.cs">
+      <DependentUpon>frmReenewLocalDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ReplaceLostOrDamagedLicense\frmReplaceLostOrDamagedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ReplaceLostOrDamagedLicense\frmReplaceLostOrDamagedLicense.Designer.cs">
+      <DependentUpon>frmReplaceLostOrDamagedLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\Release Detained License\frmReleaseDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Release Detained License\frmReleaseDetainedLicense.Designer.cs">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmManageDetainedLicenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Licenses\Detain License\frmManageDetainedLicenses.Designer.cs">
+      <DependentUpon>frmManageDetainedLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Drivers\frmManageDrivers.cs">
       <SubType>Form</SubType>
@@ -265,6 +301,9 @@
     <EmbeddedResource Include="Applications\Controls\ctrlLocalDrivingLicenseApplicationInfo.resx">
       <DependentUpon>ctrlLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Controls\ctrlLocalDrivingLicenseInfo.resx">
+      <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\International License\frmNewInternationalLicsense.resx">
       <DependentUpon>frmNewInternationalLicsense.cs</DependentUpon>
     </EmbeddedResource>
@@ -297,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\Local Driving License\Written\frmWrtittenTestAppointment.resx">
       <DependentUpon>frmWrtittenTestAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Renew Driving License\frmReenewLocalDrivingLicense.resx">
+      <DependentUpon>frmReenewLocalDrivingLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -377,8 +419,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\Release Detained License\" />
-    <Folder Include="Applications\Renew Driving License\" />
-    <Folder Include="Applications\ReplaceLostOrDamageLicesne\" />
     <Folder Include="Licenses\Controls\" />
     <Folder Include="Licenses\Detain License\" />
     <Folder Include="Licenses\International License\" />

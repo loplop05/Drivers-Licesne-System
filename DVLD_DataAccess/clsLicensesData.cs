@@ -56,5 +56,153 @@ SET @LicenseID=CONVERT(int,SCOPE_IDENTITY()); UPDATE Applications SET Applicatio
             { command.Parameters.AddWithValue("@ID", licenseID); connection.Open(); using (SqlDataReader reader = command.ExecuteReader()) table.Load(reader); }
             return table;
         }
+
+        public static int RenewLicense(int applicationId, int oldLicenseId, int userId, decimal licenseFees)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(@"
+                SET NOCOUNT ON;
+                SET XACT_ABORT ON;
+                BEGIN TRANSACTION;
+                DECLARE @DriverID int, @LicenseClass int;
+                SELECT @DriverID = DriverID, @LicenseClass = LicenseClass FROM Licenses WHERE LicenseID = @OldLicenseID AND IsActive = 1;
+                IF @DriverID IS NULL
+                BEGIN
+                    ROLLBACK TRANSACTION;
+                    SELECT -1;
+                    RETURN;
+                END;
+                UPDATE Licenses SET IsActive = 0 WHERE LicenseID = @OldLicenseID;
+                INSERT INTO Licenses (ApplicationID, DriverID, LicenseClass, IssueDate, ExpirationDate, IsActive, IssueReason, PaidFees, CreatedByUserID)
+                VALUES (@ApplicationID, @DriverID, @LicenseClass, GETDATE(), DATEADD(year, 10, GETDATE()), 1, 2, @LicenseFees, @UserID);
+                DECLARE @NewLicenseID int = CONVERT(int, SCOPE_IDENTITY());
+                UPDATE Applications SET ApplicationStatus = 3, LastStatusDate = GETDATE() WHERE ApplicationID = @ApplicationID;
+                COMMIT TRANSACTION;
+                SELECT @NewLicenseID;", connection))
+            {
+                command.Parameters.AddWithValue("@ApplicationID", applicationId);
+                command.Parameters.AddWithValue("@OldLicenseID", oldLicenseId);
+                command.Parameters.AddWithValue("@LicenseFees", licenseFees);
+                command.Parameters.AddWithValue("@UserID", userId);
+                connection.Open();
+                return Convert.ToInt32(command.ExecuteScalar());
+            }
+        }
+
+        public static bool ReplaceLicense(
+            int applicationTypeId,
+            int oldLicenseId,
+            int userId,
+            decimal applicationFees,
+            byte issueReason,
+            ref int applicationId,
+            ref int newLicenseId)
+        {
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            using (SqlCommand command = new SqlCommand(@"
+                SET NOCOUNT ON;
+                SET XACT_ABORT ON;
+                BEGIN TRANSACTION;
+
+                DECLARE @PersonID int;
+                DECLARE @DriverID int;
+                DECLARE @LicenseClass int;
+
+                SELECT
+                    @PersonID = D.PersonID,
+                    @DriverID = L.DriverID,
+                    @LicenseClass = L.LicenseClass
+                FROM Licenses L
+                INNER JOIN Drivers D ON D.DriverID = L.DriverID
+                WHERE L.LicenseID = @OldLicenseID
+                  AND L.IsActive = 1;
+
+                IF @DriverID IS NULL
+                BEGIN
+                    ROLLBACK TRANSACTION;
+                    SELECT 0 AS ApplicationID, 0 AS NewLicenseID;
+                    RETURN;
+                END;
+
+                INSERT INTO Applications
+                (
+                    ApplicantPersonID,
+                    ApplicationDate,
+                    ApplicationTypeID,
+                    ApplicationStatus,
+                    LastStatusDate,
+                    PaidFees,
+                    CreatedByUserID
+                )
+                VALUES
+                (
+                    @PersonID,
+                    GETDATE(),
+                    @ApplicationTypeID,
+                    3,
+                    GETDATE(),
+                    @ApplicationFees,
+                    @UserID
+                );
+
+                DECLARE @ApplicationID int = CONVERT(int, SCOPE_IDENTITY());
+
+                UPDATE Licenses
+                SET IsActive = 0
+                WHERE LicenseID = @OldLicenseID;
+
+                INSERT INTO Licenses
+                (
+                    ApplicationID,
+                    DriverID,
+                    LicenseClass,
+                    IssueDate,
+                    ExpirationDate,
+                    IsActive,
+                    IssueReason,
+                    PaidFees,
+                    CreatedByUserID
+                )
+                VALUES
+                (
+                    @ApplicationID,
+                    @DriverID,
+                    @LicenseClass,
+                    GETDATE(),
+                    DATEADD(year, 10, GETDATE()),
+                    1,
+                    @IssueReason,
+                    @ApplicationFees,
+                    @UserID
+                );
+
+                DECLARE @NewLicenseID int = CONVERT(int, SCOPE_IDENTITY());
+
+                COMMIT TRANSACTION;
+
+                SELECT @ApplicationID AS ApplicationID, @NewLicenseID AS NewLicenseID;", connection))
+            {
+                command.Parameters.AddWithValue("@ApplicationTypeID", applicationTypeId);
+                command.Parameters.AddWithValue("@OldLicenseID", oldLicenseId);
+                command.Parameters.AddWithValue("@UserID", userId);
+                command.Parameters.AddWithValue("@ApplicationFees", applicationFees);
+                command.Parameters.AddWithValue("@IssueReason", issueReason);
+
+                connection.Open();
+
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    if (!reader.Read())
+                    {
+                        return false;
+                    }
+
+                    applicationId = Convert.ToInt32(reader["ApplicationID"]);
+                    newLicenseId = Convert.ToInt32(reader["NewLicenseID"]);
+
+                    return applicationId > 0 && newLicenseId > 0;
+                }
+            }
+        }
     }
 }
